@@ -13,6 +13,7 @@ import {DedoublonnageComponent} from './component/type/dedoublonnage/dedoublonna
 import {LectureCrmComponent} from './component/type/lecture-crm/lecture-crm.component';
 import {ReceptionNFComponent} from './component/type/reception-nf/reception-nf.component';
 import {CadreProblemComponent} from './component/type/cadre-problem/cadre-problem.component';
+import {ItemsComponent} from './component/type/items/items.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {CadreProblemComponent} from './component/type/cadre-problem/cadre-proble
     LectureCrmComponent,
     ReceptionNFComponent,
     CadreProblemComponent,
+    ItemsComponent,
   ],
   imports: [
     BrowserModule,
