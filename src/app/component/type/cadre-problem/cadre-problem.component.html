@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <mdb-carousel class="align-middle" [animation]="'slide'">
+      <mdb-carousel-item style="margin-left: 50px;">
+
+        <div class="list-group  ">
+          <button type="button" class="btn btn-outline-primary" (click)="selectItem('attente')">Attente</button>
+          <button type="button" class="btn btn-outline-secondary" (click)="selectItem('impossible importer fichier')">
+            Impossible d'importer un fichier
+          </button>
+        </div>
+      </mdb-carousel-item>
+      <mdb-carousel-item style="margin-left: 50px;">
+        <div class="list-group align-center">
+          <button type="button" class="btn btn-outline-primary" (click)="selectItem('dedoublonnage')">Dedoublonnage
+          </button>
+          <button type="button" class="btn btn-outline-primary" (click)="selectItem('lecteur crm')">Lecteur sur le CRM
+          </button>
+
+        </div>
+      </mdb-carousel-item>
+      <mdb-carousel-item style="margin-left: 50px;">
+        <div class="list-group align-center">
+          <button type="button" class="btn btn-outline-secondary" (click)="selectItem('reception NF')">Reception non
+            fonctionnelle
+          </button>
+          <button type="button" class="btn btn-outline-primary" (click)="selectItem('fiche mutes')">Fiches de muttes
+          </button>
+        </div>
+      </mdb-carousel-item>
+
+      <mdb-carousel-item style="margin-left: 50px;">
+        <div class="list-group align-center">
+          <button type="button" class="btn btn-outline-primary" (click)="selectItem('decalage FA')">Décalage fiche
+            apple
+          </button>
+          <button type="button" class="btn btn-outline-secondary" (click)="selectItem('agenda non')">Agenda non</button>
+        </div>
+      </mdb-carousel-item>
+      <mdb-carousel-item style="margin-left: 50px;">
+        <div class="list-group align-center">
+          <button type="button" class="btn btn-outline-primary" (click)="selectItem('rechercher contart')">Rechercher un
+            contrat
+          </button>
+          <button type="button" class="btn btn-outline-secondary" (click)="selectItem('filtre aplle')">Filtre aplle
+          </button>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+  </div>
+
+  <div class="row" *ngIf="isActivate" style="padding: 20px">
+    <app-items></app-items>
+  </div>
+</div>
+
+

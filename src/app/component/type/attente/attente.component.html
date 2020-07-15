@@ -1,0 +1,52 @@
+<!--<h1>🤔🤨🤔🤔</h1>-->
+<div class="chat-message">
+  <ul class="list-unstyled chat">
+    <li class="d-flex justify-content-between mb-4">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px">
+        <div class="message-box message-partner">
+          <h1 class="text-black" #salutation (click)="speak(salutation.textContent)"
+              (load)="speak(salutation.textContent)"> Salut 😁😀🌺🌹,
+            <br>
+            Merci de cliquer à chaque fois le champs de text.
+          </h1>
+        </div>
+      </div>
+    </li>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateDialogue">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierNum()" id="verification">
+        <div class="message-box message-partner">
+          <h1 #messageVerifaction>
+            SVP verifiez le format de numéro ??
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateFormNum" id="blockNum">
+          <button type="button" class="btn btn-info" (click)="VerfierOui()">oui <i class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="verfierNon1()">non <i class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateDecrocher">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px">
+        <div class="message-box message-partner">
+          <h1 #messageVerifaction>
+            Taux de décroché &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateFormNum">
+          <button type="button" class="btn btn-info">oui <i class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger">non <i class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>

@@ -1,0 +1,61 @@
+<button class="chatbox-open" (click)="agrandirMin()">
+  <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
+</button>
+<button class="chatbox-close" (click)="fermer()" [ngStyle]="{'display': close}">
+  <i class="fa fa-times" aria-hidden="true" style="font-size:36px"></i>
+</button>
+
+<section class="chatbox-popup" [ngStyle]="{'display': block}">
+  <header class="chatbox-popup__header">
+    <aside style="flex:3">
+      <i class='fas fa-robot  fa-4x chatbox-popup__avatar' style='font-size:36px'></i>
+    </aside>
+    <aside style="flex:8">
+      <h1>Comunik Bot</h1> 😀😀
+    </aside>
+    <aside style="flex:1">
+      <button class="chatbox-maximize" (click)="agrandirMax()"><i class="fa fa-window-maximize" aria-hidden="true"></i>
+      </button>
+    </aside>
+  </header>
+  <main class="chatbox-popup__main">
+    bienvenu 😃😉👐🌹🌹🥀,
+    Si vous avez un problème de CRM , Voix ou bien Billing ...
+    <br>
+    Bah nous sommes là pour les résoudre ensemble, juste choisissiez vous un probléme et Comunik Bot va le résoudre ??
+    💪💪
+  </main>
+</section>
+
+<section class="chatbox-panel" [ngStyle]="{'display': flex}">
+  <header class="chatbox-panel__header">
+    <aside style="flex:3">
+      <i class='fas fa-robot  fa-4x chatbox-popup__avatar' style='font-size:36px'></i>
+    </aside>
+    <aside style="flex:6">
+      <h1>Comunik Bot</h1> 😀😀
+    </aside>
+    <aside style="flex:3;text-align:right;">
+      <button class="chatbox-minimize" (click)="agrandirMin()">
+        <i class="fa fa-window-restore" aria-hidden="true"></i>
+      </button>
+      <button class="chatbox-panel-close" (click)="fermer()">
+        <i class="fa fa-window-close" aria-hidden="true"></i>
+      </button>
+    </aside>
+  </header>
+  <main class="chatbox-panel__main" style="flex:1">
+    bienvenu 😃😉👐🌹🌹🥀,
+    Si vous avez un problème de CRM , Voix ou bien Billing ...
+    <br>
+    Bah nous sommes là pour les résoudre ensemble, juste choisissiez vous un probléme et Comunik Bot va le résoudre ??
+    💪💪
+    <!-- main  chat -->
+    <div class="chatbox">
+      <div class="chat-messages">
+        <app-cadre-problem></app-cadre-problem>
+      </div>
+    </div>
+    <!-- end main chat -->
+  </main>
+</section>
