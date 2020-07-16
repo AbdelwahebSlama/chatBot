@@ -39,7 +39,15 @@ export class ItemsComponent implements OnInit {
     switch (data) {
       case 'attente': {
         this.activateAttente = true;
-        // console.log('i am in switech activate attente', this.activateAttente);
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'impossible importer fichier': {
@@ -48,34 +56,113 @@ export class ItemsComponent implements OnInit {
       }
       case 'lecteur crm': {
         this.activateLeceCrm = true;
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'dedoublonnage': {
         this.activateDedoub = true;
+
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'reception NF': {
         this.activateRecpNF = true;
+
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'fiche mutes': {
         this.activateFichMutt = true;
+
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'decalage FA': {
         this.activateDecalage = true;
+
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'agenda non': {
         this.activateAgenda = true;
+
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'rechercher contart': {
         this.activateContrat = true;
+
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateApple = false;
         break;
       }
       case 'filtre aplle': {
         this.activateApple = true;
+
+        this.activateAttente = false;
+        this.activateImpoFich = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
         break;
       }
       default: {

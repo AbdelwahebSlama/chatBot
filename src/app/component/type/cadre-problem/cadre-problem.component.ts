@@ -12,7 +12,17 @@ export class CadreProblemComponent implements OnInit {
   constructor(private selectItemService: SelectItemService) {
   }
 
-  ngOnInit(): void {
+  slides: any = [[]];
+
+  chunk(arr, chunkSize) {
+    let R = [];
+    for (let i = 0, len = arr.length; i < len; i += chunkSize) {
+      R.push(arr.slice(i, i + chunkSize));
+    }
+    return R;
+  }
+
+  ngOnInit() {
   }
 
   selectItem(label: string) {

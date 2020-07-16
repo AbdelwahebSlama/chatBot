@@ -10,6 +10,14 @@ export class AttenteComponent implements OnInit {
   activateFormNum = false;
   activateDialogue = false;
   activateDecrocher = false;
+  activateDecOuiNon = false;
+  // variable contact restant
+  activateContact = false;
+  activateConatcOuiNon = false;
+
+  // variable solde
+  activateSolde = false;
+  activateSoldeOuiNon = false;
 
   constructor(private renderer: Renderer2,
   ) {
@@ -27,9 +35,46 @@ export class AttenteComponent implements OnInit {
     this.activateFormNum = true;
   }
 
-  VerfierOui() {
-    const d1 = document.getElementById('verification');
+  verfierTDec() {
+    this.activateDecOuiNon = true;
+  }
+
+  verfierTContact() {
+    this.activateConatcOuiNon = true;
+  }
+
+  verfierTSoldet() {
+    this.activateSoldeOuiNon = true;
+  }
+
+  verfierNon1() {
     const blockOuiNon = document.getElementById('blockNum');
+    blockOuiNon.hidden = true;
+    this.activateDecrocher = true;
+  }
+
+  verfierNonContact() {
+    const blockOuiNon = document.getElementById('ContactOuiNon');
+    blockOuiNon.hidden = true;
+    this.activateSolde = true;
+  }
+
+  verifierNonDecro() {
+    const blockOuiNon = document.getElementById('DecOuiNon');
+    blockOuiNon.hidden = true;
+    this.activateContact = true;
+  }
+
+  verifierNonContact() {
+    const blockOuiNon = document.getElementById('ContactOuiNon');
+    blockOuiNon.hidden = true;
+    this.activateContact = true;
+  }
+
+
+  MessageReussi(idDiv: string, idOuiNon: string) {
+    const d1 = document.getElementById(idDiv);
+    const blockOuiNon = document.getElementById(idOuiNon);
     blockOuiNon.hidden = true;
     const d2 = this.renderer.createElement('div');
     const h1 = this.renderer.createElement('H1');
@@ -43,10 +88,19 @@ export class AttenteComponent implements OnInit {
     // this.speak(h1.textContent);
   }
 
-  verfierNon1() {
-    const blockOuiNon = document.getElementById('blockNum');
+  verfiNonSolde(solde: string, soldeOuiNon: string) {
+    const d1 = document.getElementById(solde);
+    const blockOuiNon = document.getElementById(soldeOuiNon);
     blockOuiNon.hidden = true;
-    this.activateDecrocher = true;
+    const d2 = this.renderer.createElement('div');
+    const h1 = this.renderer.createElement('H1');
+    const espace = this.renderer.createElement('p');
+    espace.innerHTML = '<br>';
+    h1.textContent = 'Merci de contacter le support pour obtenire plus d\'information 😁😀🌺🌹';
+    d2.className = 'message-box message-partner';
+    this.renderer.appendChild(d2, h1);
+    d1.appendChild(espace);
+    d1.appendChild(d2);
   }
 
   speak(text: string) {

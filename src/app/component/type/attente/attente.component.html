@@ -24,7 +24,8 @@
           </h1>
         </div>
         <div class="flex-center" *ngIf="activateFormNum" id="blockNum">
-          <button type="button" class="btn btn-info" (click)="VerfierOui()">oui <i class="far fa-grin"></i></button>
+          <button type="button" class="btn btn-info" (click)="MessageReussi('verification', 'blockNum')">oui <i
+            class="far fa-grin"></i></button>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <button type="button" class="btn btn-danger" (click)="verfierNon1()">non <i class="far fa-frown"></i></button>
         </div>
@@ -34,16 +35,56 @@
     <li class="d-flex justify-content-between mb-4" *ngIf="activateDecrocher">
       <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
            style="max-width: 50px; max-height: 50px;">
-      <div class="message-box-holder" style="padding-top: 30px">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTDec()" id="decroche">
         <div class="message-box message-partner">
           <h1 #messageVerifaction>
             Taux de décroché &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </h1>
         </div>
-        <div class="flex-center" *ngIf="activateFormNum">
-          <button type="button" class="btn btn-info">oui <i class="far fa-grin"></i></button>
+        <div class="flex-center" *ngIf="activateDecOuiNon" id="DecOuiNon">
+          <button type="button" class="btn btn-info" (click)="MessageReussi('decroche', 'DecOuiNon')">oui <i
+            class="far fa-grin"></i></button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger">non <i class="far fa-frown"></i></button>
+          <button type="button" class="btn btn-danger" (click)="verifierNonDecro()">non <i class="far fa-frown"></i>
+          </button>
+        </div>
+      </div>
+    </li>
+
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateContact">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTContact( )" id="contact">
+        <div class="message-box message-partner">
+          <h1 #messageVerifaction>
+            Contact restant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateConatcOuiNon" id="ContactOuiNon">
+          <button type="button" class="btn btn-info" (click)="MessageReussi('contact', 'ContactOuiNon')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="verfierNonContact()">non <i class="far fa-frown"></i>
+          </button>
+        </div>
+      </div>
+    </li>
+
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateSolde">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTSoldet()" id="solde">
+        <div class="message-box message-partner">
+          <h1 #messageVerifaction>
+            Solde &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateSoldeOuiNon" id="soldeOuiNon">
+          <button type="button" class="btn btn-info" (click)="MessageReussi('solde', 'soldeOuiNon')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="verfiNonSolde('solde', 'soldeOuiNon')">non <i
+            class="far fa-frown"></i></button>
         </div>
       </div>
     </li>
