@@ -14,6 +14,11 @@ import {LectureCrmComponent} from './component/type/lecture-crm/lecture-crm.comp
 import {ReceptionNFComponent} from './component/type/reception-nf/reception-nf.component';
 import {CadreProblemComponent} from './component/type/cadre-problem/cadre-problem.component';
 import {ItemsComponent} from './component/type/items/items.component';
+import {TypeProblemComponent} from './component/typeProblem/type-problem/type-problem.component';
+import {CrmComponent} from './component/typeProblem/crm/crm.component';
+import {BillingComponent} from './component/typeProblem/billing/billing.component';
+import {VoiceComponent} from './component/typeProblem/voice/voice.component';
+import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import {ItemsComponent} from './component/type/items/items.component';
     ReceptionNFComponent,
     CadreProblemComponent,
     ItemsComponent,
+    TypeProblemComponent,
+    CrmComponent,
+    BillingComponent,
+    VoiceComponent,
+    CrVoiBillingComponent,
   ],
   imports: [
     BrowserModule,

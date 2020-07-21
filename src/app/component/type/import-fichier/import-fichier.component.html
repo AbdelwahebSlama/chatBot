@@ -1,1 +1,93 @@
-<p>import-fichier works!</p>
+<!--<h1>🤔🤨🤔🤔</h1>-->
+<div class="chat-message">
+  <ul class="list-unstyled chat">
+    <li class="d-flex justify-content-between mb-4">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px">
+        <div class="message-box message-partner">
+          <h1 class="text-black" #salutation>Salut ,
+            <br>
+            Merci de cliquer à chaque fois le champs de text.
+          </h1>
+        </div>
+      </div>
+    </li>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateFormat">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiFormat()" id="format">
+        <div class="message-box message-partner">
+          <h1>
+            Changer le format en xlsx ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateFormNum" id="blocFormat">
+          <button type="button" class="btn btn-info" (click)="problemFormat('blocFormat', 'format')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonFormat('blocFormat')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateCaract">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiCaratc()" id="caractere">
+        <div class="message-box message-partner">
+          <h1>
+            Enelever les caractères spéciaux ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateCarON" id="blocCaractere">
+          <button type="button" class="btn btn-info" (click)="problemCaract('blocCaractere', 'caractere')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonCaract('blocCaractere')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateChangNav">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiChangNav()" id="changnav">
+        <div class="message-box message-partner">
+          <h1>
+            Probléme de changement de navigateur ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateChangNavBloc" id="blocchangnav">
+          <button type="button" class="btn btn-info" (click)="problemChangNav('blocchangnav', 'changnav')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonChangNav('blocchangnav')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateTest">
+      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiTest()" id="tester">
+        <div class="message-box message-partner">
+          <h1>
+            Tester avec un autre fichier
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateTestbloc" id="testBloc">
+          <button type="button" class="btn btn-info" (click)="problemTest('testBloc', 'tester')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonTest('testBloc', 'tester')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+
+
+  </ul>
+</div>

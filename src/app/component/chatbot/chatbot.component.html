@@ -8,32 +8,38 @@
 <section class="chatbox-popup" [ngStyle]="{'display': block}">
   <header class="chatbox-popup__header">
     <aside style="flex:3">
-      <i class='fas fa-robot  fa-4x chatbox-popup__avatar' style='font-size:36px'></i>
+      <img src="assets/images/téléchargement.jpg" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <!--      <i class='fas fa-robot  fa-4x chatbox-popup__avatar' style='font-size:36px'></i>-->
     </aside>
-    <aside style="flex:8">
-      <h1>Comunik Bot</h1> 😀😀
+    <aside style="flex:8; ">
+      <h1>Comunik Bot</h1>
+      <!--      <img src="assets/images/logo.jpg" class="card-img-bottom">-->
     </aside>
+
     <aside style="flex:1">
       <button class="chatbox-maximize" (click)="agrandirMax()"><i class="fa fa-window-maximize" aria-hidden="true"></i>
       </button>
     </aside>
   </header>
   <main class="chatbox-popup__main">
-    bienvenu 😃😉👐🌹🌹🥀,
-    Si vous avez un problème de CRM , Voix ou bien Billing ...
+    bienvenu ,
+    Si vous avez un problème de CRM , Voix ou bien Billing.
     <br>
-    Bah nous sommes là pour les résoudre ensemble, juste choisissiez vous un probléme et Comunik Bot va le résoudre ??
-    💪💪
+    Bah nous sommes là pour les résoudre ensemble, juste choisissiez vous un probléme et Comunik Bot va le résoudre ?
   </main>
 </section>
 
 <section class="chatbox-panel" [ngStyle]="{'display': flex}">
   <header class="chatbox-panel__header">
     <aside style="flex:3">
-      <i class='fas fa-robot  fa-4x chatbox-popup__avatar' style='font-size:36px'></i>
+      <img src="assets/images/téléchargement.jpg" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
+           style="max-width: 50px; max-height: 50px;">
+      <!--      <i class='fas fa-robot  fa-4x chatbox-popup__avatar' style='font-size:36px'></i>-->
     </aside>
     <aside style="flex:6">
-      <h1>Comunik Bot</h1> 😀😀
+      <h1>Comunik Bot</h1>
+      <!--      <img src="assets/images/logo.jpg">-->
     </aside>
     <aside style="flex:3;text-align:right;">
       <button class="chatbox-minimize" (click)="agrandirMin()">
@@ -45,16 +51,18 @@
     </aside>
   </header>
   <main class="chatbox-panel__main" style="flex:1">
-    bienvenu 😃😉👐🌹🌹🥀,
+    bienvenu,
     Si vous avez un problème de CRM , Voix ou bien Billing ...
     <br>
     Bah nous sommes là pour les résoudre ensemble, juste choisissiez vous un probléme et Comunik Bot va le résoudre ??
-    💪💪
     <!-- main  chat -->
     <div class="chatbox">
       <div class="chat-messages">
-        <app-cadre-problem></app-cadre-problem>
+        <!--        <app-cadre-problem></app-cadre-problem>-->
+        <app-type-problem></app-type-problem>
+        <app-cr-voi-billing></app-cr-voi-billing>
       </div>
+
     </div>
     <!-- end main chat -->
   </main>

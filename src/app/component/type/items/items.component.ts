@@ -30,7 +30,7 @@ export class ItemsComponent implements OnInit {
       (data) => {
         this.item = data;
         // console.log('item selected: ', data, this.item);
-        this.activateItem(this.item);
+        this.activateItem(data);
       }
     );
   }
@@ -52,6 +52,15 @@ export class ItemsComponent implements OnInit {
       }
       case 'impossible importer fichier': {
         this.activateImpoFich = true;
+        this.activateAttente = false;
+        this.activateDedoub = false;
+        this.activateLeceCrm = false;
+        this.activateRecpNF = false;
+        this.activateFichMutt = false;
+        this.activateDecalage = false;
+        this.activateAgenda = false;
+        this.activateContrat = false;
+        this.activateApple = false;
         break;
       }
       case 'lecteur crm': {
@@ -69,7 +78,6 @@ export class ItemsComponent implements OnInit {
       }
       case 'dedoublonnage': {
         this.activateDedoub = true;
-
         this.activateAttente = false;
         this.activateImpoFich = false;
         this.activateLeceCrm = false;
@@ -83,7 +91,6 @@ export class ItemsComponent implements OnInit {
       }
       case 'reception NF': {
         this.activateRecpNF = true;
-
         this.activateAttente = false;
         this.activateImpoFich = false;
         this.activateDedoub = false;
@@ -97,7 +104,6 @@ export class ItemsComponent implements OnInit {
       }
       case 'fiche mutes': {
         this.activateFichMutt = true;
-
         this.activateAttente = false;
         this.activateImpoFich = false;
         this.activateDedoub = false;
@@ -111,7 +117,6 @@ export class ItemsComponent implements OnInit {
       }
       case 'decalage FA': {
         this.activateDecalage = true;
-
         this.activateAttente = false;
         this.activateImpoFich = false;
         this.activateDedoub = false;
@@ -125,7 +130,6 @@ export class ItemsComponent implements OnInit {
       }
       case 'agenda non': {
         this.activateAgenda = true;
-
         this.activateAttente = false;
         this.activateImpoFich = false;
         this.activateDedoub = false;
@@ -139,7 +143,6 @@ export class ItemsComponent implements OnInit {
       }
       case 'rechercher contart': {
         this.activateContrat = true;
-
         this.activateAttente = false;
         this.activateImpoFich = false;
         this.activateDedoub = false;
@@ -153,7 +156,6 @@ export class ItemsComponent implements OnInit {
       }
       case 'filtre aplle': {
         this.activateApple = true;
-
         this.activateAttente = false;
         this.activateImpoFich = false;
         this.activateDedoub = false;
