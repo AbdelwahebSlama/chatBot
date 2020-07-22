@@ -19,6 +19,7 @@ import {CrmComponent} from './component/typeProblem/crm/crm.component';
 import {BillingComponent} from './component/typeProblem/billing/billing.component';
 import {VoiceComponent} from './component/typeProblem/voice/voice.component';
 import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.component';
+import {ImageRobotComponent} from './component/image-robot/image-robot.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.c
     BillingComponent,
     VoiceComponent,
     CrVoiBillingComponent,
+    ImageRobotComponent,
   ],
   imports: [
     BrowserModule,

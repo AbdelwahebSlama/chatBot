@@ -1,1 +1,59 @@
-<p>reception-nf works!</p>
+<!--<h1>🤔🤨🤔🤔</h1>-->
+<div class="chat-message">
+  <ul class="list-unstyled chat">
+    <li class="d-flex justify-content-between mb-4">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px">
+        <div class="message-box message-partner">
+          <h1 class="text-black" #salutation>Salut ,
+            <br>
+            Merci de cliquer à chaque fois le champs de text.
+          </h1>
+        </div>
+      </div>
+    </li>
+
+    <li class="d-flex justify-content-between mb-4" *ngIf="activatelien">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiLien()" id="lien">
+        <div class="message-box message-partner">
+          <h1>
+            <a href="http://www.comunikcrm.com/" target="_blank">
+              Voir ce lien: http://www.comunikcrm.com/
+            </a>
+          </h1>
+        </div>
+        <br>
+        <div class="message-box message-partner" style="max-width: 200px; width: 200px; max-height: 50px">
+          <h1>
+            Probléme résolu ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateLienON" id="blocLien">
+          <button type="button" class="btn btn-info" (click)="problemLien('blocLien' )">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonLien('blocLien', 'lien')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateAcGrp">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiAcGrp()" id="activiteGrp">
+        <div class="message-box message-partner">
+          <h1>
+            Activé callblinding groupe d’agent
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateAcBloc" id="blocAcGr">
+          <button type="button" class="btn btn-info" (click)="problemTAcGr('blocAcGr', 'activiteGrp')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonAcGr('blocAcGr', 'activiteGrp')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

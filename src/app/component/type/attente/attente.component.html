@@ -2,8 +2,7 @@
 <div class="chat-message">
   <ul class="list-unstyled chat">
     <li class="d-flex justify-content-between mb-4">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px">
         <div class="message-box message-partner">
           <h1 class="text-black" #salutation (click)="speak(salutation.textContent)"> Salut ,
@@ -14,8 +13,8 @@
       </div>
     </li>
     <li class="d-flex justify-content-between mb-4" *ngIf="activateDialogue">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
+
       <div class="message-box-holder" style="padding-top: 30px" (click)="verfierNum()" id="verification">
         <div class="message-box message-partner">
           <h1 #messageVerifaction>
@@ -33,8 +32,7 @@
     </li>
 
     <li class="d-flex justify-content-between mb-4" *ngIf="activateDecrocher">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTDec()" id="decroche">
         <div class="message-box message-partner">
           <h1 #messageVerifaction>
@@ -53,8 +51,7 @@
     </li>
 
     <li class="d-flex justify-content-between mb-4" *ngIf="activateContact">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTContact( )" id="contact">
         <div class="message-box message-partner">
           <h1 #messageVerifaction>
@@ -73,8 +70,7 @@
     </li>
 
     <li class="d-flex justify-content-between mb-4" *ngIf="activateSolde">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTSoldet()" id="solde">
         <div class="message-box message-partner">
           <h1 #messageVerifaction>

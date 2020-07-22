@@ -28,9 +28,8 @@ export class ItemsComponent implements OnInit {
   ngOnInit(): void {
     this.selectItemService.itemSelectedSubject.subscribe(
       (data) => {
-        this.item = data;
-        // console.log('item selected: ', data, this.item);
         this.activateItem(data);
+        this.item = data;
       }
     );
   }

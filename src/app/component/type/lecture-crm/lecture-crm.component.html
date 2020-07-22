@@ -1,11 +1,68 @@
-<p>lecture-crm works!</p>
-<div>
-  Liste des cvsséléctionnés pour embauche :
-  <div id="embauche">
-    <span>
+<!--<h1>🤔🤨🤔🤔</h1>-->
+<div class="chat-message">
+  <ul class="list-unstyled chat">
+    <li class="d-flex justify-content-between mb-4">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px">
+        <div class="message-box message-partner">
+          <h1 class="text-black" #salutation>Salut ,
+            <br>
+            Merci de cliquer à chaque fois le champs de text.
+          </h1>
+        </div>
+      </div>
+    </li>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateTouAg">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiLien()" id="agent">
+        <div class="message-box message-partner">
+          <h1>
+            Chez tous les agents ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateTouAgON" id="blocAgent">
+          <button type="button" class="btn btn-info" (click)="problemTouAg('blocAgent')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonTouAge('blocAgent', 'agent')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
 
-       slama Abdelwaheb ing INF
-
-         </span>
-  </div>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateVerif">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVerif()" id="verifier">
+        <div class="message-box message-partner">
+          <h1>
+            Avez ous une connexion internet ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateVerifBloc" id="verifierBloc">
+          <button type="button" class="btn btn-info" (click)="problemVerif('verifierBloc')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonVerif('verifierBloc', 'verifier')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateRedmar">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiRedmar()" id="redmaer">
+        <div class="message-box message-partner">
+          <h1>
+            Redémarrer votre connexion ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateRedimarBloc" id="redemarerBloc">
+          <button type="button" class="btn btn-info" (click)="problemRedmarCnx('redemarerBloc', 'redmaer')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonRedmar('redemarerBloc', 'redmaer')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>

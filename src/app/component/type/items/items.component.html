@@ -1,8 +1,5 @@
 <div class="">
-  <div *ngIf="activateAttente">
-    <app-attente></app-attente>
-  </div>
-
+  <app-attente *ngIf="activateAttente"></app-attente>
   <app-import-fichier *ngIf="activateImpoFich"></app-import-fichier>
   <app-dedoublonnage *ngIf="activateDedoub"></app-dedoublonnage>
   <app-lecture-crm *ngIf="activateLeceCrm"></app-lecture-crm>

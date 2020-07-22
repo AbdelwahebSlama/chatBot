@@ -2,8 +2,7 @@
 <div class="chat-message">
   <ul class="list-unstyled chat">
     <li class="d-flex justify-content-between mb-4">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px">
         <div class="message-box message-partner">
           <h1 class="text-black" #salutation>Salut ,
@@ -14,8 +13,7 @@
       </div>
     </li>
     <li class="d-flex justify-content-between mb-4" *ngIf="activateFormat">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px" (click)="ouiFormat()" id="format">
         <div class="message-box message-partner">
           <h1>
@@ -32,8 +30,7 @@
       </div>
     </li>
     <li class="d-flex justify-content-between mb-4" *ngIf="activateCaract">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px" (click)="ouiCaratc()" id="caractere">
         <div class="message-box message-partner">
           <h1>
@@ -51,8 +48,7 @@
     </li>
 
     <li class="d-flex justify-content-between mb-4" *ngIf="activateChangNav">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px" (click)="ouiChangNav()" id="changnav">
         <div class="message-box message-partner">
           <h1>
@@ -70,8 +66,7 @@
     </li>
 
     <li class="d-flex justify-content-between mb-4" *ngIf="activateTest">
-      <img src="assets/images/bot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"
-           style="max-width: 50px; max-height: 50px;">
+      <app-image-robot></app-image-robot>
       <div class="message-box-holder" style="padding-top: 30px" (click)="ouiTest()" id="tester">
         <div class="message-box message-partner">
           <h1>

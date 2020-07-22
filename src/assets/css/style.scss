@@ -2,11 +2,12 @@ $base-height: 377px;
 $base-dimension: 16px;
 $base-border-radius: 12px;
 $base-button-size: 52px;
-$primary-color: #0360a5;
+$primary-color: #0080FF;
 $accent-color: #f6f7f9;
 $background-color: #fff;
-$font-color: #888;
-
+$font-color: #1C1C1C;
+//#0360a5 primary-color
+//#888 font-color
 @mixin chabox-container {
   display: flex;
   position: absolute;
@@ -102,7 +103,6 @@ textarea {
   font-size: $base-dimension;
   line-height: calc(#{$base-dimension} + #{$base-dimension} / 2);
   color: $font-color;
-  background-color: none;
   border: 0;
   outline: 0 !important;
   resize: none;
@@ -164,6 +164,8 @@ textarea {
   .chatbox-panel__main {
     @include chatbox-main;
     flex: 1 1 auto;
+    //max-height: 200px;
+    //height: 200px;
   }
 
   .chatbox-panel__footer {
