@@ -21,6 +21,14 @@ import {VoiceComponent} from './component/typeProblem/voice/voice.component';
 import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.component';
 import {ImageRobotComponent} from './component/image-robot/image-robot.component';
 import {TestComponent} from './component/test/test.component';
+import {FicheMuettesComponent} from './component/type/fiche-muettes/fiche-muettes.component';
+import {DecalageFichAppelComponent} from './component/type/decalage-fich-appel/decalage-fich-appel.component';
+import {AgendaComponent} from './component/type/agenda/agenda.component';
+import {ChercherContactComponent} from './component/type/chercher-contact/chercher-contact.component';
+import {FicheAppelComponent} from './component/type/fiche-appel/fiche-appel.component';
+import * as $ from 'jquery';
+
+console.log(`jQuery version: ${$.fn.jquery}`);
 
 @NgModule({
   declarations: [
@@ -40,6 +48,11 @@ import {TestComponent} from './component/test/test.component';
     CrVoiBillingComponent,
     ImageRobotComponent,
     TestComponent,
+    FicheMuettesComponent,
+    DecalageFichAppelComponent,
+    AgendaComponent,
+    ChercherContactComponent,
+    FicheAppelComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,4 +63,5 @@ import {TestComponent} from './component/test/test.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

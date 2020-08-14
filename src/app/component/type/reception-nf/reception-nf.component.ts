@@ -54,17 +54,23 @@ export class ReceptionNFComponent implements OnInit {
   }
 
   problemTAcGr(idBloc: string, idDiv: string) {
-    const a = idDiv;
-    const b = idBloc;
-    console.log(a);
-    console.log(b);
+    this.afficherService.bloquerBloc(idBloc);
+    const text = 'probléme sauvgarder et on vas vous envoyer la solution de cette probléme. :)';
+    this.afficherService.MessageReussi(idDiv, text);
+    setTimeout(() => {
+      const text1 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
+      this.afficherService.MessageReussi(idDiv, text1);
+    }, 1000);
+    // const a = idDiv;
+    // const b = idBloc;
+    // console.log(a);
+    // console.log(b);
   }
 
   nonAcGr(idBloc: string, idDiv: string) {
-    const a = idDiv;
-    const b = idBloc;
-    console.log(a);
-    console.log(b);
+    this.afficherService.bloquerBloc(idBloc);
+    const text1 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
+    this.afficherService.MessageReussi(idDiv, text1);
   }
 
 

@@ -1,85 +1,43 @@
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <mdb-carousel style="max-width: 300px; max-height: 120px; height: 120px;-->
-<!--                                                                    width:300px; /* or whatever width you want. */-->
-<!--                                                                    display: inline-block;"-->
-<!--                   class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"-->
-<!--                  [animation]="'slide'">-->
-<!--      <mdb-carousel-item style="margin-left: 50px;">-->
-
-<!--        <div class="list-group  ">-->
-<!--          <button type="button" class="btn btn-outline-primary" (click)="selectItem('attente')">Attente</button>-->
-<!--          <button type="button" class="btn btn-outline-secondary" style="max-width: 200px; max-height: 50px; height: 50px;-->
-<!--                                                                    width:200px; /* or whatever width yo want. */-->
-<!--                                                                    display: inline-block;"-->
-<!--                  (click)="selectItem('impossible importer fichier')">-->
-<!--            Impossible d'importer fichier-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </mdb-carousel-item>-->
-<!--      <mdb-carousel-item style="margin-left: 50px;">-->
-<!--        <div class="list-group align-center">-->
-<!--          <button type="button" class="btn btn-outline-primary" (click)="selectItem('dedoublonnage')">Dedoublonnage-->
-<!--          </button>-->
-<!--          <button type="button" class="btn btn-outline-primary" (click)="selectItem('lecteur crm')">Lecteur sur le CRM-->
-<!--          </button>-->
-
-<!--        </div>-->
-<!--      </mdb-carousel-item>-->
-<!--      <mdb-carousel-item style="margin-left: 50px;">-->
-<!--        <div class="list-group align-center">-->
-<!--          <button type="button" class="btn btn-outline-secondary" style="max-width: 200px; max-height: 50px; height: 50px;-->
-<!--                                                                    width:200px; /* or whatever width yo want. */-->
-<!--                                                                    display: inline-block;"-->
-<!--                  (click)="selectItem('reception NF')">Reception non fonctionnelle-->
-<!--          </button>-->
-<!--          <button type="button" class="btn btn-outline-primary" (click)="selectItem('fiche mutes')">Fiches de muttes-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </mdb-carousel-item>-->
-
-<!--      <mdb-carousel-item style="margin-left: 50px;">-->
-<!--        <div class="list-group align-center">-->
-<!--          <button type="button" class="btn btn-outline-primary" (click)="selectItem('decalage FA')">Décalage fiche-->
-<!--            apple-->
-<!--          </button>-->
-<!--          <button type="button" class="btn btn-outline-secondary" (click)="selectItem('agenda non')">Agenda non</button>-->
-<!--        </div>-->
-<!--      </mdb-carousel-item>-->
-<!--      <mdb-carousel-item style="margin-left: 50px;">-->
-<!--        <div class="list-group align-center">-->
-<!--          <button type="button" class="btn btn-outline-primary" (click)="selectItem('rechercher contart')">Rechercher un-->
-<!--            contrat-->
-<!--          </button>-->
-<!--          <button type="button" class="btn btn-outline-secondary" (click)="selectItem('filtre aplle')">Filtre aplle-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </mdb-carousel-item>-->
-<!--    </mdb-carousel>-->
-<!--  </div>-->
-
-
 <div class="container">
   <div class="row">
     <div style="margin-top: 40px">
-      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('attente')">
-        <span>Attente</span>
-      </button>
-      <button type="button" class="btn btn-outline-primary embauche "
-              (click)="selectItem('impossible importer fichier')">
-        <span>Impossible d'importer fichier</span>
-      </button>
-      <br>
+      <!--      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('attente')">-->
+      <!--        <span>Attente</span>-->
+      <!--      </button>-->
+      <!--      <button type="button" class="btn btn-outline-primary embauche "-->
+      <!--              (click)="selectItem('impossible importer fichier')">-->
+      <!--        <span>Impossible d'importer fichier</span>-->
+      <!--      </button>-->
+      <!--      <br>-->
 
-      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('dedoublonnage')">
-        Dedoublonnage
+      <!--      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('dedoublonnage')">-->
+      <!--        Dedoublonnage-->
+      <!--      </button>-->
+      <!--      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('lecteur crm')">Lecteur sur le-->
+      <!--        CRM-->
+      <!--      </button>-->
+      <!--      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('reception NF')"> Reception-->
+      <!--        non fonctionnelle-->
+      <!--      </button>-->
+
+
+      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('fiche mutes')"> Fiches
+        muettes
       </button>
-      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('lecteur crm')">Lecteur sur le
-        CRM
+      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('decalage FA')"> Decalage
+        fiche/Appel
       </button>
-      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('reception NF')"> Reception
-        non fonctionnelle
+      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('agenda non')"> Agenda ne
+        s’affiche pas
+        Chez l’agent
       </button>
+      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('rechercher contart')">
+        Chercher un contact
+      </button>
+      <button type="button" class="btn btn-outline-primary embauche " (click)="selectItem('filtre aplle')"> Filtre appel
+      </button>
+
+
     </div>
   </div>
   <div>
