@@ -1,0 +1,53 @@
+<!--<h1>🤔🤨🤔🤔</h1>-->
+<div class="chat-message">
+  <ul class="list-unstyled chat">
+    <li class="d-flex justify-content-between mb-4">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px">
+        <div class="message-box message-partner">
+          <h1 class="text-black" #salutation>Salut ,
+            <br>
+            Merci de cliquer à chaque fois le champs de text.
+          </h1>
+        </div>
+      </div>
+    </li>
+
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateTouAg">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiTsAg()" id="TsAg">
+        <div class="message-box message-partner">
+          <h1>
+            Chez tous les agents ?
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateTsAgON" id="blocTsAg">
+          <button type="button" class="btn btn-info" (click)="problemTsAg('blocTsAg', 'TsAg')">oui <i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonTsAg('blocTsAg', 'TsAg')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+    <li class="d-flex justify-content-between mb-4" *ngIf="activateVerCnx">
+      <app-image-robot></app-image-robot>
+      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVerCnx()" id="VerCnx">
+        <div class="message-box message-partner">
+          <h1>
+            Vérifier la connexion internet
+          </h1>
+        </div>
+        <div class="flex-center" *ngIf="activateVerCnxON" id="blocVerCnx">
+          <button type="button" class="btn btn-info" (click)="problemVerCnx('blocVerCnx', 'VerCnx')">oui<i
+            class="far fa-grin"></i></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="nonVerCnx('blocVerCnx', 'VerCnx')">Non <i
+            class="far fa-frown"></i></button>
+        </div>
+      </div>
+    </li>
+
+
+  </ul>
+</div>
