@@ -31,6 +31,7 @@ export class DecalageFichAppelComponent implements OnInit {
 
   problemTsAg(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
+    this.afficherService.messageUser(idDiv, 'Oui');
     setTimeout(() => {
       this.activateVerCnx = true;
     }, 1000);
@@ -39,7 +40,8 @@ export class DecalageFichAppelComponent implements OnInit {
   nonTsAg(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     const text = 'Voir en interne';
-    this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'Non');
     setTimeout(() => {
       this.activateVerCnx = true;
     }, 1000);
@@ -52,20 +54,19 @@ export class DecalageFichAppelComponent implements OnInit {
 
   problemVerCnx(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
+    const text2 = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text2);
     const text = 'Merci de verifiez votre connexion internet';
-    this.afficherService.MessageReussi(idDiv, text);
-    setTimeout(() => {
-      const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-      this.afficherService.MessageReussi(idDiv, text2);
-    }, 1000);
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'Oui');
   }
 
   nonVerCnx(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    setTimeout(() => {
-      // this.activateVerTaux = true;
-      const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-      this.afficherService.MessageReussi(idDiv, text2);
-    }, 1000);
+    // this.activateVerTaux = true;
+    const text2 = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text2);
+    this.afficherService.messageUser(idDiv, 'Non');
+
   }
 }

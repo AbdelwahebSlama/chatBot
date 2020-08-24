@@ -1,100 +1,68 @@
-$(document).ready(function () {
-  var itemsMainDiv = ('.MultiCarousel');
-  var itemsDiv = ('.MultiCarousel-inner');
-  var itemWidth = "";
+/*
+  @method Cards
+  @description this is for label based radio navigation to change the labels style to 'active'
+ */
+const Cards = ((() => {
+  /*
+   * @description dom loaded event listener
+   */
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(init, 1)
+  }, true);
 
-  $('.leftLst, .rightLst').click(function () {
-    var condition = $(this).hasClass("leftLst");
-    if (condition)
-      click(0, this);
-    else
-      click(1, this)
-  });
-
-  ResCarouselSize();
-
-
-  $(window).resize(function () {
-    ResCarouselSize();
-  });
-
-  //this function define the size of the items
-  function ResCarouselSize() {
-    var incno = 0;
-    var dataItems = ("data-items");
-    var itemClass = ('.item');
-    var id = 0;
-    var btnParentSb = '';
-    var itemsSplit = '';
-    var sampwidth = $(itemsMainDiv).width();
-    var bodyWidth = $('body').width();
-    $(itemsDiv).each(function () {
-      id = id + 1;
-      var itemNumbers = $(this).find(itemClass).length;
-      btnParentSb = $(this).parent().attr(dataItems);
-      itemsSplit = btnParentSb.split(',');
-      $(this).parent().attr("id", "MultiCarousel" + id);
-
-
-      if (bodyWidth >= 1200) {
-        incno = itemsSplit[3];
-        itemWidth = sampwidth / incno;
-      } else if (bodyWidth >= 992) {
-        incno = itemsSplit[2];
-        itemWidth = sampwidth / incno;
-      } else if (bodyWidth >= 768) {
-        incno = itemsSplit[1];
-        itemWidth = sampwidth / incno;
-      } else {
-        incno = itemsSplit[0];
-        itemWidth = sampwidth / incno;
-      }
-      $(this).css({'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers});
-      $(this).find(itemClass).each(function () {
-        $(this).outerWidth(itemWidth);
-      });
-
-      $(".leftLst").addClass("over");
-      $(".rightLst").removeClass("over");
-
-    });
-  }
-
-
-  //this function used to move the items
-  function ResCarousel(e, el, s) {
-    var leftBtn = ('.leftLst');
-    var rightBtn = ('.rightLst');
-    var translateXval = '';
-    var divStyle = $(el + ' ' + itemsDiv).css('transform');
-    var values = divStyle.match(/-?[\d\.]+/g);
-    var xds = Math.abs(values[4]);
-    if (e == 0) {
-      translateXval = parseInt(xds) - parseInt(itemWidth * s);
-      $(el + ' ' + rightBtn).removeClass("over");
-
-      if (translateXval <= itemWidth / 2) {
-        translateXval = 0;
-        $(el + ' ' + leftBtn).addClass("over");
-      }
-    } else if (e == 1) {
-      var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
-      translateXval = parseInt(xds) + parseInt(itemWidth * s);
-      $(el + ' ' + leftBtn).removeClass("over");
-
-      if (translateXval >= itemsCondition - itemWidth / 2) {
-        translateXval = itemsCondition;
-        $(el + ' ' + rightBtn).addClass("over");
-      }
+  /*
+   * @method init
+   * @parameter e {event}
+   * @description initiates event listeners on all cards
+   */
+  function init(e) {
+    if (document.querySelector(".cards")) {
+      let cards = document.querySelector(".cards");
+      cards.addEventListener('click', clicked, false);
+      document.querySelectorAll(".cards .card")[1].click();
     }
-    $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
   }
 
-  //It is used to get some elements from btn
-  function click(ell, ee) {
-    var Parent = "#" + $(ee).parent().attr("id");
-    var slide = $(Parent).attr("data-slide");
-    ResCarousel(ell, Parent, slide);
+  /*
+   * @method clicked
+   * @parameter e {event}
+   * @description this is the callback from the assigned event listener binding
+   */
+  function clicked(e) {
+    let card = e.target;
+    if (card.getAttribute("data-card")) {
+      rearrange(card.getAttribute("data-card"));
+    }
   }
 
-});
+  /*
+   * @method rearrange
+   * @parameter card {object}
+   * @description this is the callback from the assigned event listener binding
+   */
+  function rearrange(card) {
+    let cards = document.querySelectorAll(".cards .card");
+    for (let n = 0; n < cards.length; n++) {
+      cards[n].classList.remove("card--left");
+      cards[n].classList.remove("card--center");
+      cards[n].classList.remove("card--right");
+    }
+    cards[card].classList.add("card--center");
+    if (card == 0) {
+      cards[2].classList.add("card--left");
+      cards[1].classList.add("card--right");
+    }
+    if (card == 1) {
+      cards[0].classList.add("card--left");
+      cards[2].classList.add("card--right");
+    }
+    if (card == 2) {
+      cards[1].classList.add("card--left");
+      cards[0].classList.add("card--right");
+    }
+  }
+
+  return {
+    init
+  }
+})());

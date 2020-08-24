@@ -37,6 +37,7 @@ export class FicheMuettesComponent implements OnInit {
 
   problemTsAg(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
+    this.afficherService.messageUser(idDiv, 'Oui');
     setTimeout(() => {
       this.activateVerCnx = true;
     }, 1000);
@@ -45,7 +46,8 @@ export class FicheMuettesComponent implements OnInit {
   nonTsAg(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     const text = 'Voir en interne';
-    this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'Non');
     setTimeout(() => {
       this.activateVerCnx = true;
     }, 1000);
@@ -58,15 +60,19 @@ export class FicheMuettesComponent implements OnInit {
 
   problemVerCnx(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
+    const text2 = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text2);
     const text = 'Merci de verifiez votre connexion internet';
-    this.afficherService.MessageReussi(idDiv, text);
-    setTimeout(() => {
-      this.activateVerTaux = true;
-    }, 1000);
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'Oui');
+    // setTimeout(() => {
+    //   this.activateVerTaux = true;
+    // }, 1000);
   }
 
   nonVerCnx(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
+    this.afficherService.messageUser(idDiv, 'Non');
     setTimeout(() => {
       this.activateVerTaux = true;
     }, 1000);
@@ -79,8 +85,9 @@ export class FicheMuettesComponent implements OnInit {
 
   problemVerTaux(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'probléme sauvgarder et on va envoyez la solution';
-    this.afficherService.MessageReussi(idDiv, text);
+    const text = 'reponse sauvgarder.';
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'Oui');
     setTimeout(() => {
       this.activateVitesse = true;
     }, 1000);
@@ -88,6 +95,7 @@ export class FicheMuettesComponent implements OnInit {
 
   nonVerTaux(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
+    this.afficherService.messageUser(idDiv, 'Non');
     setTimeout(() => {
       this.activateVitesse = true;
     }, 1000);
@@ -100,19 +108,25 @@ export class FicheMuettesComponent implements OnInit {
 
   problemVitesse(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'probléme sauvgarder et on va envoyez la solution';
-    this.afficherService.MessageReussi(idDiv, text);
-    setTimeout(() => {
-      const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-      this.afficherService.MessageReussi(idDiv, text2);
-    }, 1000);
+    const text2 = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text2);
+    const text = 'reponse sauvgarder .';
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
+    // setTimeout(() => {
+    //   const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
+    //   this.afficherService.MessageReussi(idDiv, text2);
+    // }, 1000);
   }
 
   nonVitesse(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    setTimeout(() => {
-      const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-      this.afficherService.MessageReussi(idDiv, text2);
-    }, 1000);
+    const text2 = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text2);
+    this.afficherService.messageUser(idDiv, 'résolut');
+    // setTimeout(() => {
+    //   const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
+    //   this.afficherService.MessageReussi(idDiv, text2);
+    // }, 1000);
   }
 }

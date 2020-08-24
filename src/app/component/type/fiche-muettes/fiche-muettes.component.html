@@ -1,91 +1,173 @@
 <!--<h1>🤔🤨🤔🤔</h1>-->
+<div id="root">
+  <div id="app-container">
+    <div class="convo-container">
+      <div *ngIf="activateTouAg">
+        <div class="bot-message-container" id="TsAg">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>
+              Chez tous les agents ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </h1>
+          </div>
+        </div>
+        <div class="bot-message-container" style="margin-left: 100px" id="blocTsAg">
+          <button type="button" class="btn btn-outline-primary" (click)="problemTsAg('blocTsAg', 'TsAg')">
+            Oui
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-primary" (click)="nonTsAg('blocTsAg', 'TsAg')">
+            Non
+          </button>
+        </div>
+      </div>
+
+
+      <div *ngIf="activateVerCnx">
+        <div class="bot-message-container" id="VerCnx">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>
+              Vérifier la connexion internet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </h1>
+          </div>
+        </div>
+        <div class="bot-message-container" style="margin-left: 100px" id="blocVerCnx">
+          <button type="button" class="btn btn-outline-primary" (click)="problemVerCnx('blocVerCnx', 'VerCnx')">
+            Oui
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-primary" (click)="nonVerCnx('blocVerCnx', 'VerCnx')">
+            Non
+          </button>
+        </div>
+      </div>
+
+
+      <div *ngIf="activateVerTaux">
+        <div class="bot-message-container" id="VerTaux">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>
+              Vérifier le taux de nuisance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </h1>
+          </div>
+        </div>
+        <div class="bot-message-container" style="margin-left: 100px" id="blocVerTaux">
+          <button type="button" class="btn btn-outline-primary" (click)="problemVerTaux('blocVerTaux', 'VerTaux')">
+            Oui
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-primary" (click)="nonVerTaux('blocVerTaux', 'VerTaux')">
+            Non
+          </button>
+        </div>
+      </div>
+
+
+      <div *ngIf="activateVitesse">
+        <div class="bot-message-container" id="VitesseNumerotation">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>
+              Diminuer la vitesse de numérotation
+            </h1>
+          </div>
+        </div>
+        <div class="bot-message-container" style="margin-left: 100px" id="VitesseNumerotationBloc">
+          <button type="button" class="btn btn-outline-primary"
+                  (click)="problemVitesse('VitesseNumerotationBloc', 'VitesseNumerotation')">
+            Persiste
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-primary"
+                  (click)="nonVitesse('VitesseNumerotationBloc', 'VitesseNumerotation')">
+            Resolut
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<!--<h1>🤔🤨🤔🤔</h1>-->
 <div class="chat-message">
   <ul class="list-unstyled chat">
-    <li class="d-flex justify-content-between mb-4">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px">
-        <div class="message-box message-partner">
-          <h1 class="text-black" #salutation>Salut ,
-            <br>
-            Merci de cliquer à chaque fois le champs de text.
-          </h1>
-        </div>
-      </div>
-    </li>
+    <!--    <li class="d-flex justify-content-between mb-4" *ngIf="activateVerCnx">-->
+    <!--      <app-image-robot></app-image-robot>-->
+    <!--      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVerCnx()" id="">-->
+    <!--        <div class="message-box message-partner">-->
+    <!--          <h1>-->
+    <!--            Vérifier la connexion internet-->
+    <!--          </h1>-->
+    <!--        </div>-->
+    <!--        <div class="flex-center" *ngIf="activateVerCnxON" id="">-->
+    <!--          <button type="button" class="btn btn-info" (click)="problemVerCnx('blocVerCnx', 'VerCnx')">oui<i-->
+    <!--            class="far fa-grin"></i></button>-->
+    <!--          &nbsp;&nbsp;&nbsp;&nbsp;-->
+    <!--          <button type="button" class="btn btn-danger" (click)="nonVerCnx('blocVerCnx', 'VerCnx')">Non <i-->
+    <!--            class="far fa-frown"></i></button>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </li>-->
 
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateTouAg">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiTsAg()" id="TsAg">
-        <div class="message-box message-partner">
-          <h1>
-            Chez tous les agents ?
-          </h1>
-        </div>
-        <div class="flex-center" *ngIf="activateTsAgON" id="blocTsAg">
-          <button type="button" class="btn btn-info" (click)="problemTsAg('blocTsAg', 'TsAg')">oui <i
-            class="far fa-grin"></i></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="nonTsAg('blocTsAg', 'TsAg')">Non <i
-            class="far fa-frown"></i></button>
-        </div>
-      </div>
-    </li>
+    <!--    <li class="d-flex justify-content-between mb-4" *ngIf="activateVerTaux">-->
+    <!--      <app-image-robot></app-image-robot>-->
+    <!--      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVerTaux()" >-->
+    <!--        <div class="message-box message-partner">-->
+    <!--          <h1>-->
+    <!--            Vérifier le taux de nuisance-->
+    <!--          </h1>-->
+    <!--        </div>-->
+    <!--        <div class="flex-center" *ngIf="activateVerTaOn" >-->
+    <!--          <button type="button" class="btn btn-info" (click)="problemVerTaux('blocVerTaux', 'VerTaux')">oui<i-->
+    <!--            class="far fa-grin"></i></button>-->
+    <!--          &nbsp;&nbsp;&nbsp;&nbsp;-->
+    <!--          <button type="button" class="btn btn-danger" (click)="nonVerTaux('blocVerTaux', 'VerTaux')">Non <i-->
+    <!--            class="far fa-frown"></i></button>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </li>-->
 
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateVerCnx">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVerCnx()" id="VerCnx">
-        <div class="message-box message-partner">
-          <h1>
-            Vérifier la connexion internet
-          </h1>
-        </div>
-        <div class="flex-center" *ngIf="activateVerCnxON" id="blocVerCnx">
-          <button type="button" class="btn btn-info" (click)="problemVerCnx('blocVerCnx', 'VerCnx')">oui<i
-            class="far fa-grin"></i></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="nonVerCnx('blocVerCnx', 'VerCnx')">Non <i
-            class="far fa-frown"></i></button>
-        </div>
-      </div>
-    </li>
-
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateVerTaux">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVerTaux()" id="VerTaux">
-        <div class="message-box message-partner">
-          <h1>
-            Vérifier le taux de nuisance
-          </h1>
-        </div>
-        <div class="flex-center" *ngIf="activateVerTaOn" id="blocVerTaux">
-          <button type="button" class="btn btn-info" (click)="problemVerTaux('blocVerTaux', 'VerTaux')">oui<i
-            class="far fa-grin"></i></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="nonVerTaux('blocVerTaux', 'VerTaux')">Non <i
-            class="far fa-frown"></i></button>
-        </div>
-      </div>
-    </li>
-
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateVitesse">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVvitesse()" id="VitesseNumerotation">
-        <div class="message-box message-partner">
-          <h1>
-            Diminuer la vitesse de numérotation
-          </h1>
-        </div>
-        <div class="flex-center" *ngIf="activateVitesseON" id="VitesseNumerotationBloc">
-          <button type="button" class="btn btn-info"
-                  (click)="problemVitesse('VitesseNumerotationBloc', 'VitesseNumerotation')">oui<i
-            class="far fa-grin"></i></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger"
-                  (click)="nonVitesse('VitesseNumerotationBloc', 'VitesseNumerotation')">Non <i
-            class="far fa-frown"></i></button>
-        </div>
-      </div>
-    </li>
+    <!--    <li class="d-flex justify-content-between mb-4" *ngIf="activateVitesse">-->
+    <!--      <app-image-robot></app-image-robot>-->
+    <!--      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiVvitesse()" id="">-->
+    <!--        <div class="message-box message-partner">-->
+    <!--          <h1>-->
+    <!--            Diminuer la vitesse de numérotation-->
+    <!--          </h1>-->
+    <!--        </div>-->
+    <!--        <div class="flex-center" *ngIf="activateVitesseON" id="">-->
+    <!--          <button type="button" class="btn btn-info"-->
+    <!--                  (click)="problemVitesse('VitesseNumerotationBloc', 'VitesseNumerotation')">oui<i-->
+    <!--            class="far fa-grin"></i></button>-->
+    <!--          &nbsp;&nbsp;&nbsp;&nbsp;-->
+    <!--          <button type="button" class="btn btn-danger"-->
+    <!--                  (click)="nonVitesse('VitesseNumerotationBloc', 'VitesseNumerotation')">Non <i-->
+    <!--            class="far fa-frown"></i></button>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </li>-->
 
 
   </ul>

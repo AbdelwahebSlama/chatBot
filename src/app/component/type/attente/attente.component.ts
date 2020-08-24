@@ -30,17 +30,22 @@ export class AttenteComponent implements OnInit {
   }
 
   // method format num
-  bienForme(idBloc: string) {
+  bienForme(idBloc: string, idDiv: string) {
+    const message = 'bon';
     this.bloquerBloc(idBloc);
+    this.messageUser(idDiv, message);
     setTimeout(() => {
       this.activateDecrocher = true;
     }, 1000);
   }
 
   verfierNon1(idBloc: string, idDiv: string) {
+    const message = 'Mauvais';
     this.bloquerBloc(idBloc);
+
     const text = 'SVP verifiez le format de numéro. :)';
     this.MessageReussi(idDiv, text);
+    this.messageUser(idDiv, message);
     setTimeout(() => {
       this.activateDecrocher = true;
     }, 1000);
@@ -49,16 +54,20 @@ export class AttenteComponent implements OnInit {
 
   // method de decroché
   decrocheOui(idBloc: string, idDiv: string) {
+    const message = 'Bon';
     this.bloquerBloc(idBloc);
-    const text = 'Ok on va voire le taux de décroché de votre appel. 🙂';
-    this.MessageReussi(idDiv, text);
+    this.messageUser(idDiv, message);
     setTimeout(() => {
       this.activateContact = true;
     }, 1000);
   }
 
-  verifierNonDecro(idBloc: string) {
+  verifierNonDecro(idBloc: string, idDiv: string) {
+    const message = 'Mauvais';
     this.bloquerBloc(idBloc);
+    const text = 'Merci de changer le fichier. 🙂';
+    this.MessageReussi(idDiv, text);
+    this.messageUser(idDiv, message);
     setTimeout(() => {
       this.activateContact = true;
     }, 1000);
@@ -67,44 +76,37 @@ export class AttenteComponent implements OnInit {
   // method contact restant
   ContactOui(idBloc: string, idDiv: string) {
     this.bloquerBloc(idBloc);
-    const text = 'Ok on va resodre ce probléme. 🙂';
-    this.MessageReussi(idDiv, text);
+    this.messageUser(idDiv, 'Oui');
     setTimeout(() => {
       this.activateSolde = true;
     }, 1000);
   }
 
-  verfierNonContact(idBloc: string) {
+  verfierNonContact(idBloc: string, idDiv: string) {
+    const message = 'Non';
     this.bloquerBloc(idBloc);
+    const text = 'Merci de changer vtre fichier 🙂';
+    this.MessageReussi(idDiv, text);
+    this.messageUser(idDiv, message);
     setTimeout(() => {
       this.activateSolde = true;
     }, 1000);
+
   }
 
   // methods solde
   soldeOui(idBloc: string, idDiv) {
     this.bloquerBloc(idBloc);
-    const text = 'Merci de rechargé votre solde. 🙂';
+    const text = 'Merci de contacter le support. 🙂';
     this.MessageReussi(idDiv, text);
-    setTimeout(() => {
-      this.verfiNonSolde(idDiv, idBloc);
-    }, 1000);
-    // this.verfiNonSolde(idBloc, idDiv);
+    this.messageUser(idDiv, 'Oui');
   }
 
   verfiNonSolde(solde: string, soldeOuiNon: string) {
-    const d1 = document.getElementById(solde);
-    const blockOuiNon = document.getElementById(soldeOuiNon);
-    blockOuiNon.hidden = true;
-    const d2 = this.renderer.createElement('div');
-    const h1 = this.renderer.createElement('H1');
-    const espace = this.renderer.createElement('p');
-    espace.innerHTML = '<br>';
-    h1.textContent = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-    d2.className = 'message-box message-partner';
-    this.renderer.appendChild(d2, h1);
-    d1.appendChild(espace);
-    d1.appendChild(d2);
+    this.bloquerBloc(soldeOuiNon);
+    const text = 'Merci d\'alimenter votre compte ou joindre le service financier ';
+    this.MessageReussi(solde, text);
+    this.messageUser(solde, 'Non');
   }
 
   // *******************
@@ -125,22 +127,49 @@ export class AttenteComponent implements OnInit {
   }
 
   MessageReussi(idDiv: string, message: string) {
+    // declaraction des variables
     const d1 = document.getElementById(idDiv);
-    // const blockOuiNon = document.getElementById(idOuiNon);
-    // blockOuiNon.hidden = true;
     const d2 = this.renderer.createElement('div');
+    const d3 = this.renderer.createElement('div');
+    const d4 = this.renderer.createElement('div');
     const h1 = this.renderer.createElement('H1');
     const espace = this.renderer.createElement('p');
+    const img = this.renderer.createElement('img');
+
+    // traitement
     espace.innerHTML = '<br>';
     h1.textContent = message;
-    d2.className = 'message-box message-partner';
+    d2.className = 'chat-bubble bot';
+    img.src = 'assets/images/téléchargement.jpg';
+    img.className = 'bot-avatar';
+    d3.className = 'bot-message-container';
+    d4.className = 'img-avatar-container';
+    d4.appendChild(img);
+    d3.appendChild(d4);
     this.renderer.appendChild(d2, h1);
     d1.appendChild(espace);
-    d1.appendChild(d2);
-    d1.appendChild(d2);
-    // this.speak(h1.textContent);
+    d3.appendChild(d2);
+    d1.after(d3);
+
+
   }
 
+  messageUser(idDiv: string, messge: string) {
+    // declaration variable
+    const d = document.getElementById(idDiv);
+    const d1 = this.renderer.createElement('div');
+    const d2 = this.renderer.createElement('div');
+    const p = this.renderer.createElement('p');
+
+    // traitement
+    d1.className = 'user-message-container';
+    d2.className = 'chat-bubble user';
+    p.textContent = messge;
+    d2.appendChild(p);
+    d1.appendChild(d2);
+    d.after(d1);
+
+  }
 
   bloquerBloc(id: string) {
     const blockOuiNon = document.getElementById(id);

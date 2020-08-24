@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AfficherService} from '../../../services/afficher.service';
 
+
 @Component({
   selector: 'app-lecture-crm',
   templateUrl: './lecture-crm.component.html',
@@ -33,10 +34,9 @@ export class LectureCrmComponent implements OnInit {
     this.activateTouAgON = true;
   }
 
-  problemTouAg(idBloc: string) {
+  problemTouAg(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    // const text = 'Consulter ce lien:  https://www.facebook.com/comunikcrm/ ';
-    // this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'Oui');
     setTimeout(() => {
       this.activateVerif = true;
     }, 1000);
@@ -45,48 +45,52 @@ export class LectureCrmComponent implements OnInit {
   nonTouAge(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     const text = 'Voir en interne. :)';
-    this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'non');
     setTimeout(() => {
       this.activateVerif = true;
     }, 1000);
   }
 
   // method pour bloc verifier
-  ouiVerif() {
-    this.activateVerifBloc = true;
-  }
+  // ouiVerif() {
+  //   this.activateVerifBloc = true;
+  // }
 
-  problemVerif(idBloc: string) {
+  problemVerif(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
+    this.afficherService.messageUser(idDiv, 'oui');
     setTimeout(() => {
-      this.activateVerif = true;
+      this.activateRedmar = true;
     }, 1000);
   }
 
   nonVerif(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'Merci de verifier votre connexion internet. :)';
-    this.afficherService.MessageReussi(idDiv, text);
+    const text = 'Merci de verifier votre connexion internet.';
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'non');
     setTimeout(() => {
       this.activateRedmar = true;
     }, 1000);
   }
 
   // method remarer cnx
-  ouiRedmar() {
-    this.activateRedimarBloc = true;
-  }
+  // ouiRedmar() {
+  //   this.activateRedimarBloc = true;
+  // }
 
   problemRedmarCnx(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-    this.afficherService.MessageReussi(idDiv, text);
+    const text = 'Merci de contacter le support. 🙂';
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
   }
 
   nonRedmar(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-    this.afficherService.MessageReussi(idDiv, text);
+    // const text = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
+    // this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'résolut');
   }
-
 }

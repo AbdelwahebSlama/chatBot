@@ -34,17 +34,20 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
   problemFormat(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     const text = 'verifiez l\' extension de votre fichier. :)';
-    this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
     setTimeout(() => {
       this.activateCaract = true;
     }, 1000);
 
   }
 
-  nonFormat(idBloc: string) {
+  nonFormat(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    this.activateCaract = true;
-
+    this.afficherService.messageUser(idDiv, 'résolut');
+    setTimeout(() => {
+      this.activateCaract = true;
+    }, 1000);
   }
 
   ouiFormat() {
@@ -55,16 +58,18 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
   problemCaract(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     const text = 'veuillez d\'utiliser \'\'\ avant les caratcéres spéciaux';
-    this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
     setTimeout(() => {
       this.activateChangNav = true;
     }, 1000);
 
   }
 
-  nonCaract(idBloc: string) {
+  nonCaract(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     this.activateChangNav = true;
+    this.afficherService.messageUser(idDiv, 'résolut');
   }
 
   ouiCaratc() {
@@ -78,14 +83,15 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
 
   problemChangNav(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'changement de nvigateur proposition .........';
-    this.afficherService.MessageReussi(idDiv, text);
+    // const text = 'changement de nvigateur proposition .........';
+    // this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
     setTimeout(() => {
       this.activateTest = true;
     }, 1000);
   }
 
-  nonChangNav(idBloc: string) {
+  nonChangNav(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     this.activateTest = true;
   }
@@ -97,19 +103,21 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
 
   problemTest(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'tester avec autre fichier proposition .........';
-    this.afficherService.MessageReussi(idDiv, text);
-    setTimeout(() => {
-      const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-      this.afficherService.MessageReussi(idDiv, text2);
-    }, 1000);
+    const text = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
+    // setTimeout(() => {
+    //   const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
+    //   this.afficherService.MessageReussi(idDiv, text2);
+    // }, 1000);
   }
 
   nonTest(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-    this.afficherService.MessageReussi(idDiv, text);
+    // const text = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
+    // this.afficherService.MessageReussi(idDiv, text);
     // this.activateTest = true;
+    this.afficherService.messageUser(idDiv, 'résolut');
   }
 
   // ****************

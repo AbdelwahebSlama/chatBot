@@ -26,9 +26,6 @@ import {DecalageFichAppelComponent} from './component/type/decalage-fich-appel/d
 import {AgendaComponent} from './component/type/agenda/agenda.component';
 import {ChercherContactComponent} from './component/type/chercher-contact/chercher-contact.component';
 import {FicheAppelComponent} from './component/type/fiche-appel/fiche-appel.component';
-import * as $ from 'jquery';
-
-console.log(`jQuery version: ${$.fn.jquery}`);
 
 @NgModule({
   declarations: [

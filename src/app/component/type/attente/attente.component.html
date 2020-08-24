@@ -1,91 +1,104 @@
 <!--<h1>🤔🤨🤔🤔</h1>-->
-<div class="chat-message">
-  <ul class="list-unstyled chat">
-    <li class="d-flex justify-content-between mb-4">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px">
-        <div class="message-box message-partner">
-          <h1 class="text-black" #salutation (click)="speak(salutation.textContent)"> Salut ,
-            <br>
-            Merci de cliquer à chaque fois le champs de text.
-          </h1>
+<div id="root">
+  <div id="app-container">
+    <div class="convo-container">
+      <div *ngIf="activateDialogue">
+        <div class="bot-message-container" id="verification">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>SVP verifiez le format de numéro ? </h1>
+          </div>
         </div>
-      </div>
-    </li>
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateDialogue">
-      <app-image-robot></app-image-robot>
-
-      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierNum()" id="verification">
-        <div class="message-box message-partner">
-          <h1 #messageVerifaction>
-            SVP verifiez le format de numéro ?
-          </h1>
-        </div>
-        <div class="flex-center" *ngIf="activateFormNum" id="blockNum">
-          <button type="button" class="btn btn-info" (click)="bienForme('blockNum')">Bien formé <i
-            class="far fa-grin"></i></button>
+        <div class="bot-message-container" style="margin-left: 100px" id="blockNum">
+          <button type="button" class="btn btn-outline-primary rounded" (click)="bienForme('blockNum', 'verification')">
+            Bon
+          </button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="verfierNon1('blockNum', 'verification' )">Non formé <i
-            class="far fa-frown"></i></button>
-        </div>
-      </div>
-    </li>
-
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateDecrocher">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTDec()" id="decroche">
-        <div class="message-box message-partner">
-          <h1 #messageVerifaction>
-            Taux de décroché &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </h1>
-        </div>
-        <div class="flex-center" *ngIf="activateDecOuiNon" id="DecOuiNon">
-          <button type="button" class="btn btn-info" (click)="decrocheOui('DecOuiNon', 'decroche')">oui <i
-            class="far fa-grin"></i></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="verifierNonDecro('DecOuiNon')">non <i
-            class="far fa-frown"></i>
+          <button type="button" class="btn btn-outline-primary embauche"
+                  (click)="verfierNon1('blockNum', 'verification' )">Mauvais
           </button>
         </div>
       </div>
-    </li>
-
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateContact">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTContact( )" id="contact">
-        <div class="message-box message-partner">
-          <h1 #messageVerifaction>
-            Contact restant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </h1>
+      <!-- taux de décroché *********************************************************** ************************** ****-->
+      <div *ngIf="activateDecrocher">
+        <div class="bot-message-container" id="decroche">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1 #messageVerifaction>
+              Taux de décroché &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </h1>
+          </div>
         </div>
-        <div class="flex-center" *ngIf="activateConatcOuiNon" id="ContactOuiNon">
-          <button type="button" class="btn btn-info" (click)="ContactOui('ContactOuiNon', 'contact')">oui <i
-            class="far fa-grin"></i></button>
+        <div class="bot-message-container" style="margin-left: 100px" id="DecOuiNon" *ngIf="activateDecrocher">
+          <button type="button" class="btn btn-outline-primary rounded" (click)="decrocheOui('DecOuiNon', 'decroche')">
+            Bon
+          </button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="verfierNonContact('ContactOuiNon')">non <i
-            class="far fa-frown"></i>
+          <button type="button" class="btn btn-outline-primary embauche"
+                  (click)="verifierNonDecro('DecOuiNon', 'decroche')">Mauvais
           </button>
         </div>
       </div>
-    </li>
 
-    <li class="d-flex justify-content-between mb-4" *ngIf="activateSolde">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="verfierTSoldet()" id="solde">
-        <div class="message-box message-partner">
-          <h1 #messageVerifaction>
-            Solde &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </h1>
+      <div *ngIf="activateContact">
+        <div class="bot-message-container" id="contact">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>
+              Contact restant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </h1>
+          </div>
         </div>
-        <div class="flex-center" *ngIf="activateSoldeOuiNon" id="soldeOuiNon">
-          <button type="button" class="btn btn-info" (click)="soldeOui('soldeOuiNon', 'solde')">oui <i
-            class="far fa-grin"></i></button>
+        <div class="bot-message-container" style="margin-left: 100px" id="ContactOuiNon" *ngIf="activateDecrocher">
+          <button type="button" class="btn btn-outline-primary"
+                  (click)="ContactOui('ContactOuiNon', 'contact')">
+            Oui
+          </button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="verfiNonSolde('solde', 'soldeOuiNon')">non <i
-            class="far fa-frown"></i></button>
+          <button type="button" class="btn btn-outline-primary"
+                  (click)="verfierNonContact('ContactOuiNon', 'contact')">Non
+          </button>
         </div>
       </div>
-    </li>
 
-  </ul>
+
+      <div *ngIf="activateSolde">
+        <div class="bot-message-container" id="solde">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>
+              Solde &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </h1>
+          </div>
+        </div>
+        <div class="bot-message-container" style="margin-left: 100px" id="soldeOuiNon" *ngIf="activateDecrocher">
+          <button type="button" class="btn btn-outline-primary rounded"
+                  (click)="soldeOui('soldeOuiNon', 'solde')">
+            Oui
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-primary embauche"
+                  (click)="verfiNonSolde('solde', 'soldeOuiNon')">Non
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

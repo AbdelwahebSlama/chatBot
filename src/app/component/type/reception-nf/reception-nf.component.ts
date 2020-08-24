@@ -29,10 +29,11 @@ export class ReceptionNFComponent implements OnInit {
     this.activateLienON = true;
   }
 
-  problemLien(idBloc: string) {
+  problemLien(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     // const text = 'Merci de verifier votre connexion internet. :)';
     // this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
     setTimeout(() => {
       this.activateAcGrp = true;
     }, 1000);
@@ -41,8 +42,9 @@ export class ReceptionNFComponent implements OnInit {
 
   nonLien(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'probléme sauvgarder et on vas vous envoyer la solution de cette probléme. :)';
-    this.afficherService.MessageReussi(idDiv, text);
+    // const text = 'probléme sauvgarder et on vas vous envoyer la solution de cette probléme. :)';
+    // this.afficherService.MessageReussi(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'résolut');
     setTimeout(() => {
       this.activateAcGrp = true;
     }, 1000);
@@ -55,22 +57,18 @@ export class ReceptionNFComponent implements OnInit {
 
   problemTAcGr(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'probléme sauvgarder et on vas vous envoyer la solution de cette probléme. :)';
-    this.afficherService.MessageReussi(idDiv, text);
-    setTimeout(() => {
-      const text1 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-      this.afficherService.MessageReussi(idDiv, text1);
-    }, 1000);
-    // const a = idDiv;
-    // const b = idBloc;
-    // console.log(a);
-    // console.log(b);
+    // const text = 'probléme sauvgarder et on vas vous envoyer la solution de cette probléme. :)';
+    // this.afficherService.MessageReussi(idDiv, text);
+    const text1 = 'Merci de contacter le support 🙂';
+    this.afficherService.MessageReussi2(idDiv, text1);
+    this.afficherService.messageUser(idDiv, 'Oui');
   }
 
   nonAcGr(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text1 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-    this.afficherService.MessageReussi(idDiv, text1);
+    const text1 = 'Merci de contacter le support 🙂';
+    this.afficherService.MessageReussi2(idDiv, text1);
+    this.afficherService.messageUser(idDiv, 'Non');
   }
 
 
