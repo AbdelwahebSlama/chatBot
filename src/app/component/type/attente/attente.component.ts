@@ -1,4 +1,5 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
+import {AddResponsService} from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-attente',
@@ -18,7 +19,7 @@ export class AttenteComponent implements OnInit {
   activateSolde = false;
   activateSoldeOuiNon = false;
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private addService: AddResponsService) {
   }
 
 
@@ -34,6 +35,20 @@ export class AttenteComponent implements OnInit {
     const message = 'bon';
     this.bloquerBloc(idBloc);
     this.messageUser(idDiv, message);
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Verification format NUM',
+      reponse: 'bon',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateDecrocher = true;
     }, 1000);
@@ -42,10 +57,23 @@ export class AttenteComponent implements OnInit {
   verfierNon1(idBloc: string, idDiv: string) {
     const message = 'Mauvais';
     this.bloquerBloc(idBloc);
-
     const text = 'SVP verifiez le format de numéro. :)';
     this.MessageReussi(idDiv, text);
     this.messageUser(idDiv, message);
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Verification format NUM',
+      reponse: 'mauvais',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateDecrocher = true;
     }, 1000);
@@ -57,6 +85,20 @@ export class AttenteComponent implements OnInit {
     const message = 'Bon';
     this.bloquerBloc(idBloc);
     this.messageUser(idDiv, message);
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Taux de décroché',
+      reponse: 'bon',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateContact = true;
     }, 1000);
@@ -68,6 +110,20 @@ export class AttenteComponent implements OnInit {
     const text = 'Merci de changer le fichier. 🙂';
     this.MessageReussi(idDiv, text);
     this.messageUser(idDiv, message);
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Taux de décroché',
+      reponse: 'Mauvais',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateContact = true;
     }, 1000);
@@ -77,6 +133,20 @@ export class AttenteComponent implements OnInit {
   ContactOui(idBloc: string, idDiv: string) {
     this.bloquerBloc(idBloc);
     this.messageUser(idDiv, 'Oui');
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Contact restant',
+      reponse: 'Oui',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateSolde = true;
     }, 1000);
@@ -88,6 +158,20 @@ export class AttenteComponent implements OnInit {
     const text = 'Merci de changer vtre fichier 🙂';
     this.MessageReussi(idDiv, text);
     this.messageUser(idDiv, message);
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Contact restant',
+      reponse: 'Non',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateSolde = true;
     }, 1000);
@@ -100,6 +184,20 @@ export class AttenteComponent implements OnInit {
     const text = 'Merci de contacter le support. 🙂';
     this.MessageReussi(idDiv, text);
     this.messageUser(idDiv, 'Oui');
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Solde',
+      reponse: 'Oui',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 
   verfiNonSolde(solde: string, soldeOuiNon: string) {
@@ -107,24 +205,38 @@ export class AttenteComponent implements OnInit {
     const text = 'Merci d\'alimenter votre compte ou joindre le service financier ';
     this.MessageReussi(solde, text);
     this.messageUser(solde, 'Non');
+    this.addService.addCategorie({
+      libelle: 'attendte',
+      description: 'Solde',
+      reponse: 'Non',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 
   // *******************
-  verfierNum() {
-    this.activateFormNum = true;
-  }
-
-  verfierTDec() {
-    this.activateDecOuiNon = true;
-  }
-
-  verfierTContact() {
-    this.activateConatcOuiNon = true;
-  }
-
-  verfierTSoldet() {
-    this.activateSoldeOuiNon = true;
-  }
+  // verfierNum() {
+  //   this.activateFormNum = true;
+  // }
+  //
+  // verfierTDec() {
+  //   this.activateDecOuiNon = true;
+  // }
+  //
+  // verfierTContact() {
+  //   this.activateConatcOuiNon = true;
+  // }
+  //
+  // verfierTSoldet() {
+  //   this.activateSoldeOuiNon = true;
+  // }
 
   MessageReussi(idDiv: string, message: string) {
     // declaraction des variables

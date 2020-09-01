@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AfficherService} from '../../../services/afficher.service';
+import {AddResponsService} from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-chercher-contact',
@@ -12,7 +13,8 @@ export class ChercherContactComponent implements OnInit {
   activatelien = false;
   activateLienBloc = false;
 
-  constructor(private afficherService: AfficherService) {
+  constructor(private afficherService: AfficherService,
+              private addService: AddResponsService) {
   }
 
   ngOnInit(): void {
@@ -28,17 +30,45 @@ export class ChercherContactComponent implements OnInit {
 
   problemLien(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'Autre solution ';
-    this.afficherService.MessageReussi(idDiv, text);
-    setTimeout(() => {
-      const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-      this.afficherService.MessageReussi(idDiv, text2);
-    }, 1000);
+    const text2 = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text2);
+    const text = 'reponse sauvgarder.';
+    this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Rechercher un contact',
+      description: 'Consulter ce lien',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 
   nonLien(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
-    this.afficherService.MessageReussi(idDiv, text2);
+    const text2 = 'Merci de contacter le support 🙂 .';
+    this.afficherService.MessageReussi2(idDiv, text2);
+    this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Rechercher un contact',
+      description: 'Consulter ce lien',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 }

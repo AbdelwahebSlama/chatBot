@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {AfficherService} from '../../../services/afficher.service';
+import {AddResponsService} from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-import-fichier',
@@ -21,7 +22,7 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
   activateTest = false;
   activateTestbloc = false;
 
-  constructor(private afficherService: AfficherService) {
+  constructor(private afficherService: AfficherService, private addService: AddResponsService) {
   }
 
   ngOnInit(): void {
@@ -36,6 +37,20 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
     const text = 'verifiez l\' extension de votre fichier. :)';
     this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Changer le format en xlsx',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateCaract = true;
     }, 1000);
@@ -45,6 +60,20 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
   nonFormat(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Changer le format en xlsx',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateCaract = true;
     }, 1000);
@@ -60,6 +89,20 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
     const text = 'veuillez d\'utiliser \'\'\ avant les caratcéres spéciaux';
     this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Enelever les caractères spéciaux',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateChangNav = true;
     }, 1000);
@@ -70,22 +113,48 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
     this.afficherService.bloquerBloc(idBloc);
     this.activateChangNav = true;
     this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Enelever les caractères spéciaux',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 
-  ouiCaratc() {
-    this.activateCarON = true;
-  }
-
-  // method de changenment navigateur
-  ouiChangNav() {
-    this.activateChangNavBloc = true;
-  }
+  // ouiCaratc() {
+  //   this.activateCarON = true;
+  // }
+  //
+  // // method de changenment navigateur
+  // ouiChangNav() {
+  //   this.activateChangNavBloc = true;
+  // }
 
   problemChangNav(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    // const text = 'changement de nvigateur proposition .........';
-    // this.afficherService.MessageReussi(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Changer de navigateur',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateTest = true;
     }, 1000);
@@ -93,7 +162,24 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
 
   nonChangNav(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    this.activateTest = true;
+    this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Changer de navigateur',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
+    setTimeout(() => {
+      this.activateTest = true;
+    }, 1000);
   }
 
   // method tester avec autre fichier
@@ -106,6 +192,20 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
     const text = 'Merci de contacter le support 🙂 .';
     this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Tester avec un autre fichier',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     // setTimeout(() => {
     //   const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
     //   this.afficherService.MessageReussi(idDiv, text2);
@@ -118,6 +218,20 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
     // this.afficherService.MessageReussi(idDiv, text);
     // this.activateTest = true;
     this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Tester avec un autre fichier',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 
   // ****************

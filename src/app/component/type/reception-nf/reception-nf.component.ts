@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AfficherService} from '../../../services/afficher.service';
+import {AddResponsService} from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-reception-nf',
@@ -15,7 +16,8 @@ export class ReceptionNFComponent implements OnInit {
   activateAcGrp = false;
   activateAcBloc = false;
 
-  constructor(private afficherService: AfficherService) {
+  constructor(private afficherService: AfficherService,
+              private addService: AddResponsService) {
   }
 
   ngOnInit(): void {
@@ -34,6 +36,20 @@ export class ReceptionNFComponent implements OnInit {
     // const text = 'Merci de verifier votre connexion internet. :)';
     // this.afficherService.MessageReussi(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Reception non fonctionnelle',
+      description: 'Voir ce lien',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateAcGrp = true;
     }, 1000);
@@ -45,6 +61,20 @@ export class ReceptionNFComponent implements OnInit {
     // const text = 'probléme sauvgarder et on vas vous envoyer la solution de cette probléme. :)';
     // this.afficherService.MessageReussi(idDiv, text);
     this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Reception non fonctionnelle',
+      description: 'Voir ce lien',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateAcGrp = true;
     }, 1000);
@@ -62,6 +92,20 @@ export class ReceptionNFComponent implements OnInit {
     const text1 = 'Merci de contacter le support 🙂';
     this.afficherService.MessageReussi2(idDiv, text1);
     this.afficherService.messageUser(idDiv, 'Oui');
+    this.addService.addCategorie({
+      libelle: 'Reception non fonctionnelle',
+      description: 'Activé callblinding groupe d\'agent',
+      reponse: 'Oui',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 
   nonAcGr(idBloc: string, idDiv: string) {
@@ -69,6 +113,20 @@ export class ReceptionNFComponent implements OnInit {
     const text1 = 'Merci de contacter le support 🙂';
     this.afficherService.MessageReussi2(idDiv, text1);
     this.afficherService.messageUser(idDiv, 'Non');
+    this.addService.addCategorie({
+      libelle: 'Reception non fonctionnelle',
+      description: 'Activé callblinding groupe d\'agent',
+      reponse: 'Non',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
   }
 
 

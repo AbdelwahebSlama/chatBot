@@ -1,41 +1,30 @@
 <!--<h1>🤔🤨🤔🤔</h1>-->
-<div class="chat-message">
-  <ul class="list-unstyled chat">
-    <li class="d-flex justify-content-between mb-4">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px">
-        <div class="message-box message-partner">
-          <h1 class="text-black" #salutation>Salut ,
+<div id="root">
+  <div id="app-container">
+    <div class="convo-container">
+      <div *ngIf="activatelien">
+        <div class="bot-message-container" id="lien">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>Merci de consulter ce lien </h1>
             <br>
-            Merci de cliquer à chaque fois le champs de text.
-          </h1>
+            <a href="http://www.comunikcrm.com/" target="_blank">http://www.comunikcrm.com/</a>
+          </div>
         </div>
-      </div>
-    </li>
-
-    <li class="d-flex justify-content-between mb-4" *ngIf="activatelien">
-      <app-image-robot></app-image-robot>
-      <div class="message-box-holder" style="padding-top: 30px" (click)="ouiLien()" id="Lien">
-        <div class="message-box message-partner">
-          <h1>
-            Consulter ce lien
-          </h1>
-        </div>
-        <br>
-        <div class="message-box message-partner">
-          <h1>
-            www.comunikcrm.com/
-          </h1>
-        </div>
-        <div class="flex-center" *ngIf="activateLienBloc" id="lienBloc">
-          <button type="button" class="btn btn-info" (click)="problemLien('lienBloc', 'Lien')">oui<i
-            class="far fa-grin"></i></button>
+        <div class="bot-message-container" style="margin-left: 100px" id="lienBloc">
+          <button type="button" class="btn btn-outline-primary" (click)="problemLien('lienBloc', 'lien')">
+            persiste
+          </button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="nonLien('lienBloc', 'Lien')">Non <i
-            class="far fa-frown"></i></button>
+          <button type="button" class="btn btn-outline-primary"
+                  (click)="nonLien('lienBloc', 'lien')">résolut
+          </button>
         </div>
       </div>
-    </li>
-
-  </ul>
+    </div>
+  </div>
 </div>

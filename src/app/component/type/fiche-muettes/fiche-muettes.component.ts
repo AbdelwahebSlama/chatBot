@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AfficherService} from '../../../services/afficher.service';
+import {AddResponsService} from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-fiche-muettes',
@@ -21,7 +22,8 @@ export class FicheMuettesComponent implements OnInit {
   activateVitesse = false;
   activateVitesseON = false;
 
-  constructor(private afficherService: AfficherService) {
+  constructor(private afficherService: AfficherService,
+              private addService: AddResponsService) {
   }
 
   ngOnInit(): void {
@@ -38,6 +40,20 @@ export class FicheMuettesComponent implements OnInit {
   problemTsAg(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     this.afficherService.messageUser(idDiv, 'Oui');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Chez tous les agents',
+      reponse: 'Oui',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateVerCnx = true;
     }, 1000);
@@ -48,6 +64,20 @@ export class FicheMuettesComponent implements OnInit {
     const text = 'Voir en interne';
     this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'Non');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Chez tous les agents',
+      reponse: 'Non',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateVerCnx = true;
     }, 1000);
@@ -65,6 +95,20 @@ export class FicheMuettesComponent implements OnInit {
     const text = 'Merci de verifiez votre connexion internet';
     this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'Oui');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Vérifier la connexion internet',
+      reponse: 'Oui',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     // setTimeout(() => {
     //   this.activateVerTaux = true;
     // }, 1000);
@@ -73,6 +117,20 @@ export class FicheMuettesComponent implements OnInit {
   nonVerCnx(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     this.afficherService.messageUser(idDiv, 'Non');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Vérifier la connexion internet',
+      reponse: 'Non',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateVerTaux = true;
     }, 1000);
@@ -88,6 +146,20 @@ export class FicheMuettesComponent implements OnInit {
     const text = 'reponse sauvgarder.';
     this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'Oui');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Vérifier le taux de nuisance',
+      reponse: 'Oui',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateVitesse = true;
     }, 1000);
@@ -96,6 +168,20 @@ export class FicheMuettesComponent implements OnInit {
   nonVerTaux(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     this.afficherService.messageUser(idDiv, 'Non');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Vérifier le taux de nuisance',
+      reponse: 'Non',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     setTimeout(() => {
       this.activateVitesse = true;
     }, 1000);
@@ -113,6 +199,20 @@ export class FicheMuettesComponent implements OnInit {
     const text = 'reponse sauvgarder .';
     this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Diminuer la vitesse de numérotation',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     // setTimeout(() => {
     //   const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
     //   this.afficherService.MessageReussi(idDiv, text2);
@@ -124,6 +224,20 @@ export class FicheMuettesComponent implements OnInit {
     const text2 = 'Merci de contacter le support 🙂 .';
     this.afficherService.MessageReussi2(idDiv, text2);
     this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Fiches muettes',
+      description: 'Diminuer la vitesse de numérotation',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
     // setTimeout(() => {
     //   const text2 = 'Si vous avez un autre questuions veulliez de contacter le support. 🙂';
     //   this.afficherService.MessageReussi(idDiv, text2);

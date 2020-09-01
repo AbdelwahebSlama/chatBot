@@ -26,6 +26,7 @@ import {DecalageFichAppelComponent} from './component/type/decalage-fich-appel/d
 import {AgendaComponent} from './component/type/agenda/agenda.component';
 import {ChercherContactComponent} from './component/type/chercher-contact/chercher-contact.component';
 import {FicheAppelComponent} from './component/type/fiche-appel/fiche-appel.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {FicheAppelComponent} from './component/type/fiche-appel/fiche-appel.comp
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
