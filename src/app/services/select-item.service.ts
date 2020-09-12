@@ -7,6 +7,7 @@ import {Subject} from 'rxjs';
 export class SelectItemService {
   itemSelectedSubject: Subject<string> = new Subject<string>();
   itemPrblem: Subject<string> = new Subject<string>();
+  itemVoiceSelectedSubject: Subject<string> = new Subject<string>();
 
   constructor() {
   }
@@ -17,5 +18,9 @@ export class SelectItemService {
 
   selectedProblem(label: string) {
     this.itemPrblem.next(label);
+  }
+
+  selectedItemVoice(label: string) {
+    this.itemVoiceSelectedSubject.next(label);
   }
 }

@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
@@ -17,9 +17,9 @@ import {ItemsComponent} from './component/type/items/items.component';
 import {TypeProblemComponent} from './component/typeProblem/type-problem/type-problem.component';
 import {CrmComponent} from './component/typeProblem/crm/crm.component';
 import {BillingComponent} from './component/typeProblem/billing/billing.component';
-import {VoiceComponent} from './component/typeProblem/voice/voice.component';
+import {VoiceComponent} from './component/voice/voice/voice.component';
 import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.component';
-import {ImageRobotComponent} from './component/image-robot/image-robot.component';
+// import {ImageRobotComponent} from './component/image-robot/image-robot.component';
 import {TestComponent} from './component/test/test.component';
 import {FicheMuettesComponent} from './component/type/fiche-muettes/fiche-muettes.component';
 import {DecalageFichAppelComponent} from './component/type/decalage-fich-appel/decalage-fich-appel.component';
@@ -27,6 +27,12 @@ import {AgendaComponent} from './component/type/agenda/agenda.component';
 import {ChercherContactComponent} from './component/type/chercher-contact/chercher-contact.component';
 import {FicheAppelComponent} from './component/type/fiche-appel/fiche-appel.component';
 import {HttpClientModule} from '@angular/common/http';
+import {LoginComponent} from './component/login/login.component';
+import {ViceItemsComponent} from './component/voice/vice-items/vice-items.component';
+import {ProblemSonComponent} from './component/voice/problem-son/problem-son.component';
+import {CopurAppelComponent} from './component/voice/copur-appel/copur-appel.component';
+import {ConnexionEchoueComponent} from './component/voice/connexion-echoue/connexion-echoue.component';
+
 
 @NgModule({
   declarations: [
@@ -44,19 +50,25 @@ import {HttpClientModule} from '@angular/common/http';
     BillingComponent,
     VoiceComponent,
     CrVoiBillingComponent,
-    ImageRobotComponent,
+    // ImageRobotComponent,
     TestComponent,
     FicheMuettesComponent,
     DecalageFichAppelComponent,
     AgendaComponent,
     ChercherContactComponent,
     FicheAppelComponent,
+    LoginComponent,
+    ViceItemsComponent,
+    ProblemSonComponent,
+    CopurAppelComponent,
+    ConnexionEchoueComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    AppRoutingModule,
     HttpClientModule,
   ],
   providers: [],

@@ -15,4 +15,8 @@ export class AddResponsService {
   addCategorie(data): Observable<any> {
     return this.http.post<any>(APIS.api_postCategorie, data);
   }
+
+  login(credentials): Observable<any> {
+    return this.http.post<any>(APIS.api_login, credentials);
+  }
 }

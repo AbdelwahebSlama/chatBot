@@ -1,7 +1,6 @@
 export class Type {
   private _id: string;
   private _libelle: string;
-
   constructor(id: string, libelle: string) {
     this._id = id;
     this._libelle = libelle;
