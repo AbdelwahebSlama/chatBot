@@ -32,6 +32,7 @@ import {ViceItemsComponent} from './component/voice/vice-items/vice-items.compon
 import {ProblemSonComponent} from './component/voice/problem-son/problem-son.component';
 import {CopurAppelComponent} from './component/voice/copur-appel/copur-appel.component';
 import {ConnexionEchoueComponent} from './component/voice/connexion-echoue/connexion-echoue.component';
+import {AuthGuard} from './guard/auth.guard';
 
 
 @NgModule({
@@ -71,7 +72,7 @@ import {ConnexionEchoueComponent} from './component/voice/connexion-echoue/conne
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

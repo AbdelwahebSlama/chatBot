@@ -8,7 +8,6 @@ import {SelectItemService} from '../../../services/select-item.service';
 })
 export class VoiceComponent implements OnInit {
   isActivate = false;
-
   constructor(private selectItemService: SelectItemService) {
   }
 

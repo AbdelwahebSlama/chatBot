@@ -13,10 +13,16 @@ export class AddResponsService {
 
   // lib: string, desc: string, response: string, typeid: string
   addCategorie(data): Observable<any> {
-    return this.http.post<any>(APIS.api_postCategorie, data);
+    const token = localStorage.getItem('token');
+    const headers = {'content-Type': 'application/json', Authorization: 'Bearer ' + token};
+    return this.http.post<any>(APIS.api_postCategorie, data, {'headers': headers});
   }
 
   login(credentials): Observable<any> {
     return this.http.post<any>(APIS.api_login, credentials);
+  }
+
+  isAuthenticated() {
+    return !!localStorage.getItem('token');
   }
 }

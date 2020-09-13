@@ -3,11 +3,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {LoginComponent} from './component/login/login.component';
 import {ChatbotComponent} from './component/chatbot/chatbot.component';
+import {AuthGuard} from './guard/auth.guard';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'chatBot', component: ChatbotComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'chatBot', component: ChatbotComponent, canActivate: [AuthGuard]}
 
 ];
 
