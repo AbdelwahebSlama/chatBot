@@ -1,5 +1,6 @@
 import {Component, Inject, Injectable, Renderer2, RendererFactory2, ViewEncapsulation} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
+import {isNgContent} from '@angular/compiler';
 //
 // @Component({
 //   encapsulation: ViewEncapsulation.None
@@ -38,9 +39,6 @@ export class AfficherService {
     blockOuiNon.hidden = true;
   }
 
-  inverserFalse(bol: boolean) {
-    bol = true;
-  }
 
   MessageReussi2(idDiv: string, message: string) {
     // declaraction des variables
@@ -52,7 +50,9 @@ export class AfficherService {
     const espace = this.renderer.createElement('p');
     const img = this.renderer.createElement('img');
 
+    console.log('message ', d1.attributes[0].name);
     // traitement
+    console.log();
     espace.innerHTML = '<br>';
     h1.textContent = message;
     d2.className = 'chat-bubble bot';
@@ -80,6 +80,10 @@ export class AfficherService {
     // traitement
     d1.className = 'user-message-container';
     d2.className = 'chat-bubble user';
+    // d1.getName.setAttribute(d.attributes[0]) ;
+    // NamedNodeMap
+    console.log('d ', d.attributes[0]);
+    console.log('message ', d1.attributes);
     p.textContent = messge;
     d2.appendChild(p);
     d1.appendChild(d2);

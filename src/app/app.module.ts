@@ -16,7 +16,7 @@ import {CadreProblemComponent} from './component/type/cadre-problem/cadre-proble
 import {ItemsComponent} from './component/type/items/items.component';
 import {TypeProblemComponent} from './component/typeProblem/type-problem/type-problem.component';
 import {CrmComponent} from './component/typeProblem/crm/crm.component';
-import {BillingComponent} from './component/typeProblem/billing/billing.component';
+import {BillingComponent} from './component/billing/billing/billing.component';
 import {VoiceComponent} from './component/voice/voice/voice.component';
 import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.component';
 // import {ImageRobotComponent} from './component/image-robot/image-robot.component';
@@ -33,6 +33,10 @@ import {ProblemSonComponent} from './component/voice/problem-son/problem-son.com
 import {CopurAppelComponent} from './component/voice/copur-appel/copur-appel.component';
 import {ConnexionEchoueComponent} from './component/voice/connexion-echoue/connexion-echoue.component';
 import {AuthGuard} from './guard/auth.guard';
+import { ItemsBbillingComponent } from './component/billing/items-bbilling/items-bbilling.component';
+import { WhiteListeComponent } from './component/billing/white-liste/white-liste.component';
+import { BlackListeComponent } from './component/billing/black-liste/black-liste.component';
+import { AchatComponent } from './component/billing/achat/achat.component';
 
 
 @NgModule({
@@ -62,7 +66,11 @@ import {AuthGuard} from './guard/auth.guard';
     ViceItemsComponent,
     ProblemSonComponent,
     CopurAppelComponent,
-    ConnexionEchoueComponent
+    ConnexionEchoueComponent,
+    ItemsBbillingComponent,
+    WhiteListeComponent,
+    BlackListeComponent,
+    AchatComponent
   ],
   imports: [
     BrowserModule,

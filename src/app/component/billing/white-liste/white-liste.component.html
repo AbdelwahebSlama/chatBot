@@ -2,7 +2,7 @@
 <div id="root">
   <div id="app-container">
     <div class="convo-container">
-      <div *ngIf="activateLien">
+      <div *ngIf="activatelien">
         <div class="bot-message-container" id="lien">
           <div class="img-avatar-container">
             <img class="bot-avatar"
@@ -12,16 +12,16 @@
           <div class="chat-bubble bot">
             <h1>Merci de consulter ce lien </h1>
             <br>
-            <a href="http://www.comunikcrm.com/" target="_blank">http://www.comunikcrm.com</a>
+            <a href="http://www.comunikcrm.com/" target="_blank">http://www.comunikcrm.com/</a>
           </div>
         </div>
-        <div class="bot-message-container" style="margin-left: 100px" id="blocLien">
-          <button type="button" class="btn btn-outline-primary" (click)="problemLien('blocLien', 'lien')">
+        <div class="bot-message-container" style="margin-left: 100px" id="lienBloc">
+          <button type="button" class="btn btn-outline-primary" (click)="problemLien('lienBloc', 'lien')">
             persiste
           </button>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <button type="button" class="btn btn-outline-primary"
-                  (click)="nonLien('blocLien', 'lien')">résolut
+                  (click)="nonLien('lienBloc', 'lien')">résolut
           </button>
         </div>
       </div>
