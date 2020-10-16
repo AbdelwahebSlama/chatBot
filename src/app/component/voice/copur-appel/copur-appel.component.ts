@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {AfficherService} from '../../../services/afficher.service';
-import {AddResponsService} from '../../../services/bd/add-respons.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfficherService } from '../../../services/afficher.service';
+import { AddResponsService } from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-copur-appel',
@@ -9,14 +9,14 @@ import {AddResponsService} from '../../../services/bd/add-respons.service';
   encapsulation: ViewEncapsulation.None
 })
 export class CopurAppelComponent implements OnInit {
-// variable
+  // variable
   activateTouAg = false;
   activateCnxInternet = false;
   activateTestEcho = false;
   activateRedamarageCnx = false;
 
   constructor(private afficherService: AfficherService,
-              private addService: AddResponsService) {
+    private addService: AddResponsService) {
   }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class CopurAppelComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Oui');
     this.addService.addCategorie({
       libelle: 'coupure d\'appel',
-      description: 'Pb chez tous les agents',
+      description: 'probléme chez tous les agents',
       reponse: 'Oui',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -78,7 +78,7 @@ export class CopurAppelComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Bon');
     this.addService.addCategorie({
       libelle: 'coupure d\'appel',
-      description: 'Voir cnx internet',
+      description: 'Merci de vérifier votre connexion internet',
       reponse: 'Bon',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -96,12 +96,12 @@ export class CopurAppelComponent implements OnInit {
   }
   nonCnxInternet(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'Merci de verifiez votre connexion Internet';
-    this.afficherService.MessageReussi2(idDiv, text);
+    /*   const text = 'Merci de verifiez votre connexion Internet';
+      this.afficherService.MessageReussi2(idDiv, text); */
     this.afficherService.messageUser(idDiv, 'Mauvais');
     this.addService.addCategorie({
       libelle: 'coupure d\'appel',
-      description: 'Voir cnx internet',
+      description: 'Merci de vérifier votre connexion internet',
       reponse: 'Mauvais',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -145,7 +145,7 @@ export class CopurAppelComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Non');
     this.addService.addCategorie({
       libelle: 'coupure d\'appel',
-      description: 'appeler notre num',
+      description: 'appeler notre numéro',
       reponse: 'Non',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -172,7 +172,7 @@ export class CopurAppelComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Oui');
     this.addService.addCategorie({
       libelle: 'coupure d\'appel',
-      description: 'redemarrage cnx',
+      description: 'redémarrer votre connexion',
       reponse: 'Oui',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -190,12 +190,10 @@ export class CopurAppelComponent implements OnInit {
     this.afficherService.bloquerBloc(idBloc);
     const text2 = 'Merci de contacter le support 🙂 .';
     this.afficherService.MessageReussi2(idDiv, text2);
-    const text = 'reponse sauvgarder.';
-    this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'Non');
     this.addService.addCategorie({
       libelle: 'coupure d\'appel',
-      description: 'redemarrage cnx',
+      description: 'redémarrer votre connexion ',
       reponse: 'Non',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(

@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {AfficherService} from '../../../services/afficher.service';
-import {AddResponsService} from '../../../services/bd/add-respons.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfficherService } from '../../../services/afficher.service';
+import { AddResponsService } from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-problem-son',
@@ -16,7 +16,7 @@ export class ProblemSonComponent implements OnInit {
   activateRedamarageCnx = false;
 
   constructor(private afficherService: AfficherService,
-              private addService: AddResponsService) {
+    private addService: AddResponsService) {
   }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Oui');
     this.addService.addCategorie({
       libelle: 'Problème de son',
-      description: 'Pb chez tous les agents',
+      description: 'probléme chez tous les agents',
       reponse: 'Oui',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -55,7 +55,7 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Non');
     this.addService.addCategorie({
       libelle: 'Problème de son',
-      description: 'Pb chez tous les agents',
+      description: 'probléme chez tous les agents',
       reponse: 'Non',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -78,7 +78,7 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Bon');
     this.addService.addCategorie({
       libelle: 'Problème de son',
-      description: 'Voir cnx internet',
+      description: 'Merci de vérifier votre connexion internet',
       reponse: 'Bon',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -101,7 +101,7 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Mauvais');
     this.addService.addCategorie({
       libelle: 'Problème de son',
-      description: 'Voir cnx internet',
+      description: 'Merci de vérifier votre connexion internet',
       reponse: 'Mauvais',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -124,7 +124,7 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Oui');
     this.addService.addCategorie({
       libelle: 'Problème de son',
-      description: 'test d\'écho',
+      description: 'test d\'écho depuis le CRM',
       reponse: 'Oui',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -145,7 +145,7 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Non');
     this.addService.addCategorie({
       libelle: 'Problème de son',
-      description: 'test d\'écho',
+      description: 'test d\'écho depuis le CRM',
       reponse: 'Non',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -167,8 +167,6 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.bloquerBloc(idBloc);
     const text2 = 'Merci de contacter le support 🙂 .';
     this.afficherService.MessageReussi2(idDiv, text2);
-    const text = 'reponse sauvgarder.';
-    this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'Oui');
     this.addService.addCategorie({
       libelle: 'Problème de son',
@@ -190,8 +188,6 @@ export class ProblemSonComponent implements OnInit {
     this.afficherService.bloquerBloc(idBloc);
     const text2 = 'Merci de contacter le support 🙂 .';
     this.afficherService.MessageReussi2(idDiv, text2);
-    const text = 'reponse sauvgarder.';
-    this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'Non');
     this.addService.addCategorie({
       libelle: 'Problème de son',

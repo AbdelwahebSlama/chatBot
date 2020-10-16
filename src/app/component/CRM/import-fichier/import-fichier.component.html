@@ -26,6 +26,27 @@
         </div>
       </div>
 
+      <div *ngIf="activateVerifierFormat">
+        <div class="bot-message-container" id="Verifformat">
+          <div class="img-avatar-container">
+            <img class="bot-avatar"
+                 src="assets/images/téléchargement.jpg"
+                 alt="bot avatar">
+          </div>
+          <div class="chat-bubble bot">
+            <h1>Verifiez l'extension de votre fichier (xls, csv, xlsx) ?</h1>
+          </div>
+        </div>
+        <div class="bot-message-container" style="margin-left: 100px" id="blocVerifformat">
+          <button type="button" class="btn btn-outline-primary" (click)="problemVerifierFormat('blocVerifformat', 'Verifformat')">
+            persiste
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-outline-primary"
+                  (click)="nonVerifierFormat('blocVerifformat', 'Verifformat')">résolut
+          </button>
+        </div>
+      </div>
 
       <div *ngIf="activateCaract">
         <div class="bot-message-container" id="caractere">

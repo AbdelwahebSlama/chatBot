@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {AfficherService} from '../../../services/afficher.service';
-import {AddResponsService} from '../../../services/bd/add-respons.service';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfficherService } from '../../../services/afficher.service';
+import { AddResponsService } from '../../../services/bd/add-respons.service';
 
 @Component({
   selector: 'app-import-fichier',
@@ -21,6 +21,8 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
   // var test
   activateTest = false;
   activateTestbloc = false;
+  // fieirfierFormat
+  activateVerifierFormat = false;
 
   constructor(private afficherService: AfficherService, private addService: AddResponsService) {
   }
@@ -34,8 +36,8 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
   // methods de format
   problemFormat(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'verifiez l\' extension de votre fichier. :)';
-    this.afficherService.MessageReussi2(idDiv, text);
+    // const text = 'verifiez l\' extension de votre fichier. :)';
+    // this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
     this.addService.addCategorie({
       libelle: 'Impossible d’importer un fichier',
@@ -52,7 +54,7 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
       }
     );
     setTimeout(() => {
-      this.activateCaract = true;
+      this.activateVerifierFormat = true;
     }, 1000);
 
   }
@@ -83,11 +85,57 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
     this.activateFormNum = true;
   }
 
+  // method de verifier format 
+  problemVerifierFormat(idBloc: string, idDiv: string) {
+    this.afficherService.bloquerBloc(idBloc);
+    // const text = 'verifiez l\' extension de votre fichier. :)';
+    // this.afficherService.MessageReussi2(idDiv, text);
+    this.afficherService.messageUser(idDiv, 'persiste');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Verifiez l\'extension de votre fichier (xls, csv, xlsx)',
+      reponse: 'persiste',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
+    setTimeout(() => {
+      this.activateCaract = true
+    }, 1000);
+
+  }
+  nonVerifierFormat(idBloc: string, idDiv: string) {
+    this.afficherService.bloquerBloc(idBloc);
+    this.afficherService.messageUser(idDiv, 'résolut');
+    this.addService.addCategorie({
+      libelle: 'Impossible d’importer un fichier',
+      description: 'Verifiez l\'extension de votre fichier (xls, csv, xlsx)',
+      reponse: 'résolut',
+      typeId: '5f4b760e4b24361d503f18bd'
+    }).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log('error ');
+        console.log(err);
+      }
+    );
+    setTimeout(() => {
+      this.activateCaract = true;
+    }, 1000);
+  }
   // method de caracter spéciaux
   problemCaract(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
-    const text = 'veuillez d\'utiliser \'\'\ avant les caratcéres spéciaux';
-    this.afficherService.MessageReussi2(idDiv, text);
+    // const text = 'veuillez d\'utiliser \'\'\ avant les caratcéres spéciaux';
+    // this.afficherService.MessageReussi2(idDiv, text);
     this.afficherService.messageUser(idDiv, 'persiste');
     this.addService.addCategorie({
       libelle: 'Impossible d’importer un fichier',
@@ -129,15 +177,8 @@ export class ImportFichierComponent implements OnInit, OnDestroy {
     );
   }
 
-  // ouiCaratc() {
-  //   this.activateCarON = true;
-  // }
-  //
-  // // method de changenment navigateur
-  // ouiChangNav() {
-  //   this.activateChangNavBloc = true;
-  // }
 
+  // method de changenment navigateur
   problemChangNav(idBloc: string, idDiv: string) {
     this.afficherService.bloquerBloc(idBloc);
     this.afficherService.messageUser(idDiv, 'persiste');

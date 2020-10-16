@@ -126,7 +126,7 @@ export class ConnexionEchoueComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Oui');
     this.addService.addCategorie({
       libelle: 'connexion echouée',
-      description: 'Redémarrer votre cnx',
+      description: 'Redémarrer votre connexion internet',
       reponse: 'Oui',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(
@@ -147,7 +147,7 @@ export class ConnexionEchoueComponent implements OnInit {
     this.afficherService.messageUser(idDiv, 'Non');
     this.addService.addCategorie({
       libelle: 'connexion echouée',
-      description: 'Redémarrer votre cnx',
+      description: 'Redémarrer votre connexion internet',
       reponse: 'Non',
       typeId: '5f4b763c4b24361d503f18be'
     }).subscribe(

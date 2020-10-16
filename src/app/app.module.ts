@@ -7,25 +7,23 @@ import {AppComponent} from './app.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {FormsModule} from '@angular/forms';
 import {ChatbotComponent} from './component/chatbot/chatbot.component';
-import {AttenteComponent} from './component/type/attente/attente.component';
-import {ImportFichierComponent} from './component/type/import-fichier/import-fichier.component';
-import {DedoublonnageComponent} from './component/type/dedoublonnage/dedoublonnage.component';
-import {LectureCrmComponent} from './component/type/lecture-crm/lecture-crm.component';
-import {ReceptionNFComponent} from './component/type/reception-nf/reception-nf.component';
-import {CadreProblemComponent} from './component/type/cadre-problem/cadre-problem.component';
-import {ItemsComponent} from './component/type/items/items.component';
+//import {AttenteComponent} from './component/type/attente/attente.component';
+import {ImportFichierComponent} from './component/CRM/import-fichier/import-fichier.component';
+import {DedoublonnageComponent} from './component/CRM/dedoublonnage/dedoublonnage.component';
+import {LectureCrmComponent} from './component/CRM/lecture-crm/lecture-crm.component';
+import {ReceptionNFComponent} from './component/CRM/reception-nf/reception-nf.component';
+import {CadreProblemComponent} from './component/CRM/cadre-problem/cadre-problem.component';
+import {ItemsComponent} from './component/CRM/items/items.component';
 import {TypeProblemComponent} from './component/typeProblem/type-problem/type-problem.component';
 import {CrmComponent} from './component/typeProblem/crm/crm.component';
 import {BillingComponent} from './component/billing/billing/billing.component';
 import {VoiceComponent} from './component/voice/voice/voice.component';
 import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.component';
-// import {ImageRobotComponent} from './component/image-robot/image-robot.component';
-import {TestComponent} from './component/test/test.component';
-import {FicheMuettesComponent} from './component/type/fiche-muettes/fiche-muettes.component';
-import {DecalageFichAppelComponent} from './component/type/decalage-fich-appel/decalage-fich-appel.component';
-import {AgendaComponent} from './component/type/agenda/agenda.component';
-import {ChercherContactComponent} from './component/type/chercher-contact/chercher-contact.component';
-import {FicheAppelComponent} from './component/type/fiche-appel/fiche-appel.component';
+import {FicheMuettesComponent} from './component/CRM/fiche-muettes/fiche-muettes.component';
+import {DecalageFichAppelComponent} from './component/CRM/decalage-fich-appel/decalage-fich-appel.component';
+import {AgendaComponent} from './component/CRM/agenda/agenda.component';
+import {ChercherContactComponent} from './component/CRM/chercher-contact/chercher-contact.component';
+import {FicheAppelComponent} from './component/CRM/fiche-appel/fiche-appel.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './component/login/login.component';
 import {ViceItemsComponent} from './component/voice/vice-items/vice-items.component';
@@ -37,6 +35,7 @@ import { ItemsBbillingComponent } from './component/billing/items-bbilling/items
 import { WhiteListeComponent } from './component/billing/white-liste/white-liste.component';
 import { BlackListeComponent } from './component/billing/black-liste/black-liste.component';
 import { AchatComponent } from './component/billing/achat/achat.component';
+import { AttenteComponent } from './component/CRM/attente/attente.component';
 
 
 @NgModule({
@@ -55,8 +54,6 @@ import { AchatComponent } from './component/billing/achat/achat.component';
     BillingComponent,
     VoiceComponent,
     CrVoiBillingComponent,
-    // ImageRobotComponent,
-    TestComponent,
     FicheMuettesComponent,
     DecalageFichAppelComponent,
     AgendaComponent,
