@@ -15,7 +15,6 @@ import {ReceptionNFComponent} from './component/CRM/reception-nf/reception-nf.co
 import {CadreProblemComponent} from './component/CRM/cadre-problem/cadre-problem.component';
 import {ItemsComponent} from './component/CRM/items/items.component';
 import {TypeProblemComponent} from './component/typeProblem/type-problem/type-problem.component';
-import {CrmComponent} from './component/typeProblem/crm/crm.component';
 import {BillingComponent} from './component/billing/billing/billing.component';
 import {VoiceComponent} from './component/voice/voice/voice.component';
 import {CrVoiBillingComponent} from './component/cr-voi-billing/cr-voi-billing.component';
@@ -50,7 +49,6 @@ import { AttenteComponent } from './component/CRM/attente/attente.component';
     CadreProblemComponent,
     ItemsComponent,
     TypeProblemComponent,
-    CrmComponent,
     BillingComponent,
     VoiceComponent,
     CrVoiBillingComponent,

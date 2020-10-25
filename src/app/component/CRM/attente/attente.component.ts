@@ -155,7 +155,7 @@ export class AttenteComponent implements OnInit {
   verfierNonContact(idBloc: string, idDiv: string) {
     const message = 'Non';
     this.bloquerBloc(idBloc);
-    const text = 'Merci de changer vtre fichier 🙂';
+    const text = 'Merci de changer votre fichier 🙂';
     this.MessageReussi(idDiv, text);
     this.messageUser(idDiv, message);
     this.addService.addCategorie({
